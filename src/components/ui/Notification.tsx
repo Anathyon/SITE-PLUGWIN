@@ -1,0 +1,64 @@
+import { useState, useEffect } from 'react';
+import { Shield, X, ExternalLink } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { cn } from '../../utils/cn';
+
+export const Notification = () => {
+  const [isVisible, setIsVisible] = useState(true);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsVisible(false);
+    }, 5000);
+
+    return () => clearTimeout(timer);
+  }, []);
+
+  return (
+    <AnimatePresence>
+      {isVisible && (
+        <motion.div
+          initial={{ opacity: 0, y: 50, scale: 0.9 }}
+          animate={{ opacity: 1, y: 0, scale: 1 }}
+          exit={{ opacity: 0, y: 50, scale: 0.9 }}
+          transition={{ duration: 0.4, type: "spring" }}
+          className={cn("fixed bottom-6 left-6 z-60 max-w-sm w-full")}
+        >
+          <div className="bg-[#1a1b23] rounded-2xl shadow-2xl border border-white/5 relative overflow-hidden" style={{padding:"1.5rem"}}>
+            {/* Glow effect */}
+            <div className="absolute top-0 left-0 w-full h-1 bg-linear-to-r from-purple-500 to-blue-500 opacity-50" />
+            
+            <button 
+              onClick={() => setIsVisible(false)}
+              className="absolute top-3 right-3 text-gray-400 hover:text-white transition-colors cursor-pointer p-1 rounded-full hover:bg-white/5"
+            >
+              <X size={16} />
+            </button>
+
+            <div className="flex gap-4">
+              <div className="shrink-0">
+                <div className="w-10 h-10 rounded-full bg-[#6D28D9]/20 flex items-center justify-center text-[#9F7AEA]">
+                  <Shield size={20} />
+                </div>
+              </div>
+              
+              <div className="flex-1">
+                <h3 className="text-white font-semibold text-base mb-1">Adequado à LGPD</h3>
+                <p className="text-gray-400 text-sm leading-relaxed mb-3">
+                  Nosso portal já está adequado à LGPD. (Lei Geral de Proteção de Dados, nº 13.709 com vigência a partir de agosto de 2020.)
+                </p>
+                <a 
+                  href="https://intuix-capacitor-app.prod.intuix.com.br/customers/4e268e09-b22b-4133-b063-edfe3d4932ff/reporting-channel" 
+                  className="text-[#9F7AEA] hover:text-[#B794F4] text-sm font-medium flex items-center gap-1 transition-colors group w-fit"
+                >
+                  Acessar plataforma
+                  <ExternalLink size={12} className="group-hover:translate-x-0.5 transition-transform" />
+                </a>
+              </div>
+            </div>
+          </div>
+        </motion.div>
+      )}
+    </AnimatePresence>
+  );
+};
