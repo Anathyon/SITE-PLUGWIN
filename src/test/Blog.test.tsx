@@ -4,8 +4,6 @@ import { BlogSection } from '../components/sections/BlogSection';
 import { BlogPost } from '../components/pages/BlogPost';
 import { MemoryRouter, Routes, Route } from 'react-router-dom';
 import { blogPosts } from '../data/content';
-import React from 'react';
-
 describe('BlogSection', () => {
   it('renders the blog title', () => {
     render(
