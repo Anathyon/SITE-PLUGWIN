@@ -14,7 +14,7 @@ export const Navbar = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
+      setIsScrolled(window.scrollY > 20);
     };
 
     const handleResize = () => {
@@ -58,11 +58,11 @@ export const Navbar = () => {
   return (
     <nav
       className={cn(
-        "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
+        "fixed top-0 left-0 right-0 z-50 transition-all duration-500 ease-out",
         isScrolled ? "bg-[#0f1016]/95 backdrop-blur-md border-b border-white/10" : "bg-transparent"
       )}
       style={{
-        padding: isScrolled ? '12px 24px' : '20px 24px'
+        padding: isScrolled ? '12px 24px' : '30px 24px'
       }}
     >
       <div 
@@ -76,7 +76,12 @@ export const Navbar = () => {
            <img 
             src="https://site.plugwin.net/assets/img/logo_plugwin.png" 
             alt="PlugWin Logo" 
-            style={{ height: '40px', width: 'auto', filter: 'brightness(0) invert(1)' }}
+            style={{ 
+              height: isScrolled ? '40px' : '63px', 
+              width: 'auto', 
+              filter: 'brightness(0) invert(1)',
+              transition: 'height 0.5s ease-out'
+            }}
           />
         </Link>
 

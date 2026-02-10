@@ -109,7 +109,7 @@ export const Contact = () => {
                       name="email"
                       value={formData.email}
                       onChange={handleChange}
-                      className="w-full bg-white/5 border border-white/10 rounded-lg text-white focus:outline-none focus:border-accent transition-colors"
+                      className="w-full bg-white/5 border border-white/10 rounded-lg  text-white focus:outline-none focus:border-accent transition-colors"
                       placeholder="seu@email.com"
                       style={{ paddingInline: '1rem', paddingBlock: '0.75rem' }}  
                     />
