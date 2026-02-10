@@ -37,7 +37,7 @@ export const BlogPost = () => {
                 alt={post.title} 
                 className="w-full h-full object-cover brightness-75 contrast-125"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-dark via-dark/50 to-transparent" />
+              <div className="absolute inset-0 bg-linear-gradient-to-t from-dark via-dark/50 to-transparent" />
               <div className="absolute inset-0 flex items-center justify-center p-8">
                 <h1 className="text-3xl md:text-5xl font-bold text-white leading-tight text-center max-w-2xl px-4 drop-shadow-lg">
                   {post.title}

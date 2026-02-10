@@ -1,3 +1,8 @@
+/**
+ * Componente de Notificação LGPD
+ * Exibe um banner informativo sobre adequação à LGPD
+ * Auto-dismiss após 5 segundos ou ao clicar no botão fechar
+ */
 import { useState, useEffect } from 'react';
 import { Shield, X, ExternalLink } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -6,6 +11,7 @@ import { cn } from '../../utils/cn';
 export const Notification = () => {
   const [isVisible, setIsVisible] = useState(true);
 
+  // Auto-dismiss após 5 segundos
   useEffect(() => {
     const timer = setTimeout(() => {
       setIsVisible(false);

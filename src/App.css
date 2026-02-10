@@ -1,11 +1,19 @@
+/**
+ * Estilos globais da aplicação
+ * Define reset CSS, variáveis e estilos base
+ */
+
+/* Reset CSS */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
+/* Importação do Tailwind CSS v4 */
 @import "tailwindcss";
 
+/* Variáveis CSS e configurações base */
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
@@ -13,6 +21,7 @@
   color-scheme: dark;
 }
 
+/* Estilos do body com gradiente de fundo */
 body {
   margin: 0;
   background-color: #0f0c29;
@@ -22,7 +31,7 @@ body {
   overflow-x: hidden;
 }
 
-/* Custom Scrollbar */
+/* Scrollbar customizada para navegadores Webkit */
 ::-webkit-scrollbar {
   width: 10px;
 }
@@ -40,7 +49,7 @@ body {
   background: #5a32a3;
 }
 
-/* Smooth Scroll */
+/* Scroll suave para navegação */
 html {
   scroll-behavior: smooth;
 }

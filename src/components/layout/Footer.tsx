@@ -9,9 +9,7 @@ export const Footer = () => {
             <img 
               src="https://site.plugwin.net/assets/img/logo_plugwin.png" 
               alt="PlugWin Logo" 
-              style={{ height: '32px', width: 'auto', filter: 'grayscale(100%)', transition: 'all 0.3s' }}
-              onMouseEnter={(e) => e.currentTarget.style.filter = 'grayscale(0%)'}
-              onMouseLeave={(e) => e.currentTarget.style.filter = 'grayscale(100%)'}
+              style={{ height: '32px', width: 'auto', filter: 'brightness(0) invert(1)' }}
             />
           </div>
           

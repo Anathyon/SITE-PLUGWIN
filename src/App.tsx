@@ -1,3 +1,7 @@
+/**
+ * Componente principal da aplicação
+ * Gerencia rotas e layout geral do site
+ */
 import { Routes, Route } from 'react-router-dom';
 import './App.css';
 import { Navbar } from './components/layout/Navbar';
@@ -10,8 +14,10 @@ import { Projects } from './components/sections/Projects';
 import { BlogSection } from './components/sections/BlogSection';
 import { Notification } from './components/ui/Notification';
 import { BlogPost } from './components/pages/BlogPost';
+import { Testimonials } from './components/sections/Testimonials';
+import { Contact } from './components/sections/Contact';
 
-// Product Components
+// Importação de componentes de produtos
 import { PWMed } from './components/pages/products/PWMed';
 import { PWLeg } from './components/pages/products/PWLeg';
 import { PWEdu } from './components/pages/products/PWEdu';
@@ -31,9 +37,15 @@ import { ProtocoloDigital } from './components/pages/products/ProtocoloDigital';
 function App() {
   return (
     <>
+      {/* Navegação fixa no topo */}
       <Navbar />
+      
+      {/* Notificação LGPD */}
       <Notification />
+      
+      {/* Sistema de rotas */}
       <Routes>
+        {/* Página inicial com todas as seções */}
         <Route path="/" element={
           <>
             <Hero />
@@ -42,10 +54,12 @@ function App() {
             <Services />
             <Projects />
             <BlogSection />
+            <Testimonials />
+            <Contact />
           </>
         } />
         
-        {/* Product Routes */}
+        {/* Rotas de produtos */}
         <Route path="/project/pwmed" element={<PWMed />} />
         <Route path="/project/pwleg" element={<PWLeg />} />
         <Route path="/project/pwedu" element={<PWEdu />} />
@@ -61,8 +75,12 @@ function App() {
         <Route path="/project/institucional-legislativo" element={<InstitucionalLegislativo />} />
         <Route path="/project/institucional-executivo" element={<InstitucionalExecutivo />} />
         <Route path="/project/protocolo-digital" element={<ProtocoloDigital />} />
+        
+        {/* Rota de posts do blog */}
         <Route path="/blog/:id" element={<BlogPost />} />
       </Routes>
+      
+      {/* Rodapé */}
       <Footer />
     </>
   );

@@ -12,6 +12,11 @@ dist
 dist-ssr
 *.local
 
+# Variáveis de ambiente
+.env
+.env.local
+.env.production
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
@@ -22,3 +27,10 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Testes
+coverage
+.nyc_output
+
+# Build
+.cache

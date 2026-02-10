@@ -1,3 +1,8 @@
+/**
+ * Componente GlassCard
+ * Card com efeito glassmorphism e animação de hover
+ * Utilizado em várias seções do site para manter consistência visual
+ */
 import { motion } from 'framer-motion';
 import type { ReactNode } from 'react';
 import { cn } from '../../utils/cn';
@@ -19,6 +24,7 @@ export const GlassCard = ({ children, className, style }: GlassCardProps) => {
         backgroundColor: 'rgba(255, 255, 255, 0.03)',
         ...style
       }}
+      // Animação de elevação no hover
       whileHover={{ y: -5 }}
       transition={{ duration: 0.3 }}
     >
