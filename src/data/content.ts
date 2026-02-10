@@ -2,7 +2,7 @@ export const blogPosts = [
   {
     id: 4,
     title: "Por que o ecommerce é essencial para o crescimento e expansão dos negócios",
-    image: "https://d.storage.plugwin.net/plugwin/371713612.png",
+    image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&q=80&w=800",
     content: `O comércio eletrônico, ou ecommerce, tem sido uma das indústrias de crescimento mais rápido nos últimos anos. Com o aumento das compras online, cada vez mais empresas estão adotando o ecommerce como uma forma de alcançar novos clientes e expandir seus negócios.
 
 Aqui estão algumas das principais razões pelas quais as empresas devem considerar a implementação do ecommerce:
@@ -24,7 +24,7 @@ Em resumo, o ecommerce oferece às empresas uma oportunidade de alcançar novos 
   {
     id: 3,
     title: "Por que ter um site é essencial para empresas e indivíduos em um mundo cada vez mais digital",
-    image: "https://d.storage.plugwin.net/plugwin/593172240.png",
+    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=800",
     content: `Se você é uma pessoa ou empresa que ainda não tem um site, é importante considerar os benefícios que ter uma presença online pode trazer. Aqui estão algumas razões pelas quais você deve ter um site:
 
 **Maior alcance:** Um site permite que você alcance um público muito maior do que seria possível por meio de métodos tradicionais, como publicidade em jornais ou panfletos. Com um site, você pode alcançar pessoas em qualquer lugar do mundo, a qualquer hora do dia.
@@ -46,7 +46,7 @@ Em resumo, ter um site pode trazer uma série de benefícios para sua empresa ou
   {
     id: 2,
     title: "6 razões pelas quais um site é essencial para empresas e pessoas na era digital",
-    image: "https://d.storage.plugwin.net/plugwin/904588659.jpeg",
+    image: "https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?auto=format&fit=crop&q=80&w=800",
     content: `Hoje em dia, ter um site é essencial tanto para empresas quanto para pessoas que desejam se destacar na internet. Aqui estão algumas das principais razões pelas quais você deve considerar a criação de um site para si mesmo ou para sua empresa:
 
 1. **Visibilidade na internet:** Ter um site permite que as pessoas encontrem você ou sua empresa na internet de maneira fácil e rápida. Isso aumenta a visibilidade e a credibilidade da sua marca, especialmente se o seu site for profissional e bem desenvolvido.
@@ -68,22 +68,22 @@ Em resumo, ter um site é uma forma eficaz de aumentar a visibilidade, a credibi
 export const testimonials = [
   {
     name: "Camara de Meruoca",
-    image: "https://site.plugwin.net/assets/img/testimonials/meruoca.png",
+    image: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&q=80&w=800",
     text: "A qualidade e a dedicação da equipe foram excepcionais, entregando um serviço que superou todas as minhas expectativas. O sistema desenvolvido ficou intuitivo, moderno e com excelente desempenho. Sem dúvida, recomendo a Plugwin Sistemas para quem busca profissionalismo e inovação."
   },
   {
     name: "Panorama Broadcast",
-    image: "https://site.plugwin.net/assets/img/testimonials/panorama_escale.jpg",
+    image: "https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?auto=format&fit=crop&q=80&w=800",
     text: "A equipe demonstrou profissionalismo e dedicação em cada etapa do projeto, entregando um sistema eficiente e intuitivo. A qualidade do design e a usabilidade superaram minhas expectativas, tornando a experiência ainda melhor. Recomendo fortemente!"
   },
   {
     name: "Studio Tassia Mendes",
-    image: "https://site.plugwin.net/assets/img/testimonials/tassia.png",
+    image: "https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?auto=format&fit=crop&q=80&w=800",
     text: "Tive uma excelente experiência com a Plugwin Sistemas. A equipe entregou um trabalho de alto nível, com um site ágil, intuitivo e totalmente alinhado às minhas expectativas. Além disso, o suporte sempre foi rápido e eficiente, demonstrando comprometimento e seriedade. Sem dúvida, uma empresa que vale a pena confiar!"
   },
   {
     name: "JRC Locações",
-    image: "https://site.plugwin.net/assets/img/testimonials/jrc.png",
+    image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=800",
     text: "A Plugwin Sistemas fez um trabalho excepcional! Desde o primeiro contato, a equipe se mostrou extremamente profissional e atenciosa, garantindo que todas as minhas necessidades fossem atendidas. O sistema desenvolvido ficou incrível, com uma interface moderna e fácil de usar. Estou muito satisfeito e recomendo a todos que buscam qualidade e inovação!"
   }
 ];
@@ -95,7 +95,7 @@ export const projects = [
     category: "Saúde",
     description: "Sistema integrado de gestão de clínicas, projetado para simplificar e modernizar o atendimento ao Paciente.",
     fullDescription: "PWMed é um sistema integrado de gestão de clínicas, projetado para simplificar e modernizar o atendimento ao Paciente. Visa tornar o cuidado com o paciente mais eficiente e acolhedor, com ferramentas digitais que automatizam processos e uma abordagem centrada no ser humano.",
-    image: "https://site.plugwin.net/assets/pwmed/img/quadro_agenda.jpeg",
+    image: "https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&q=80&w=800",
     link: "https://site.plugwin.net/pwmed",
     features: [
       "Atendimento Inteligente e Humanizado",
@@ -113,7 +113,7 @@ export const projects = [
     category: "Legislativo",
     description: "A Solução Completa para Votação Digital, Gestão de Tempo e Chamadas.",
     fullDescription: "O PWLeg é um sistema que vai agilizar o trabalho parlamentar, otimizando o processo legislativo de votação e discussão das matérias. Possui controle de tempo, geração de relatórios automáticos, resultados de votações e tempo de fala, além de controle de presença.",
-    image: "https://site.plugwin.net/assets/img/legislativo/votacao_painel.png",
+    image: "https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&q=80&w=800",
     link: "https://site.plugwin.net/pwleg",
     features: [
       "Transparência",
@@ -130,7 +130,7 @@ export const projects = [
     category: "Educação",
     description: "Plataforma que otimiza a Gestão Escolar através da análise inteligente de dados.",
     fullDescription: "O PWEdu é uma plataforma que otimiza a Gestão Escolar através da análise inteligente de dados. Oferece gestão eficiente de servidores, gestão de documentos e arquivos, integração com Educacenso/INEP e um sistema adaptativo de avaliação.",
-    image: "https://site.plugwin.net/assets/img/censovdc.png",
+    image: "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&q=80&w=800",
     link: "https://site.plugwin.net/pwedu",
     features: [
       "100% Online e Acessível",
@@ -147,7 +147,7 @@ export const projects = [
     category: "Governo",
     description: "Plataforma digital intuitiva para facilitar o acesso à gestão legislativa municipal.",
     fullDescription: "O Portal Legislativo é uma plataforma digital intuitiva desenvolvida para facilitar o acesso à gestão legislativa municipal. Ele permite consultas a dados legislativos, transparência referente a contas públicas (RGF, receitas e despesas) e oferece um espaço para reclamações (ouvidoria e e-SIC).",
-    image: "https://site.plugwin.net/assets/img/camara_meruoca.png",
+    image: "https://images.unsplash.com/photo-1589829085413-56de8ae18c73?auto=format&fit=crop&q=80&w=800",
     link: "https://camarameruoca.ce.gov.br/"
   },
   {
@@ -156,7 +156,7 @@ export const projects = [
     category: "Streaming",
     description: "Plataforma de transmissão e streaming de vídeo com qualidade 4K.",
     fullDescription: "Uma transmissão diferente de tudo que você já viu! Câmeras com qualidade 4K, estrutura móvel, produtora audiovisual e streaming de vídeo de alta qualidade.",
-    image: "https://site.plugwin.net/assets/img/panorama.png",
+    image: "https://images.unsplash.com/photo-1492619375914-88005aa9e8fb?auto=format&fit=crop&q=80&w=800",
     link: "https://panoramabroadcast.com.br/"
   },
   {
@@ -183,7 +183,7 @@ export const projects = [
     category: "Gestão",
     description: "Gestão Eletrônica de Documentos para empresas e órgãos públicos.",
     fullDescription: "O PWGED permite a digitalização, armazenamento e gestão segura de documentos, facilitando o acesso e reduzindo o uso de papel.",
-    image: "https://images.unsplash.com/photo-1568029137166-401261979419?auto=format&fit=crop&q=80&w=800",
+    image: "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&q=80&w=800",
     link: "https://site.plugwin.net/pwged"
   },
   {
@@ -228,7 +228,7 @@ export const projects = [
     category: "Governo",
     description: "Portal institucional para Câmaras Municipais.",
     fullDescription: "Site institucional completo para Câmaras Municipais, com notícias, agenda e informações sobre vereadores.",
-    image: "https://images.unsplash.com/photo-1541872703-74c5963631df?auto=format&fit=crop&q=80&w=800",
+    image: "https://images.unsplash.com/photo-1555421689-d68471e189f2?auto=format&fit=crop&q=80&w=800",
     link: "https://site.plugwin.net/instlegis"
   },
   {
