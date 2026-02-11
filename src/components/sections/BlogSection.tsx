@@ -3,41 +3,92 @@ import { FadeIn } from '../ui/FadeIn';
 import { blogPosts } from '../../data/content';
 import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
+import { cn } from '../../utils/cn';
 
 export const BlogSection = () => {
   return (
     <section id="blog" className="py-20 relative" style={{ marginTop: '0', marginBottom: '0' }}>
-      <div className="w-full" style={{ maxWidth: '1280px', margin: '0 auto', padding: '40px 24px' }}>
+      <div 
+        className="w-full" 
+        style={{ 
+          maxWidth: '1280px', 
+          margin: '0 auto', 
+          padding: 'clamp(32px, 5vw, 40px) 24px' 
+        }}
+      >
         <div className="text-center" style={{ marginBottom: '64px' }}>
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4 text-center" style={{ marginBottom: '1rem' }}>Blog</h2>
-          <p className="text-gray-400 text-center" style={{ maxWidth: '672px', margin: '0 auto' }}>
+          <h2 
+            className="font-bold text-white" 
+            style={{ 
+              fontSize: 'clamp(1.875rem, 4vw, 2.25rem)', 
+              marginBottom: '16px' 
+            }}
+          >
+            Blog
+          </h2>
+          <p 
+            className="text-gray-400" 
+            style={{ 
+              maxWidth: '672px', 
+              margin: '0 auto',
+              fontSize: 'clamp(0.875rem, 2vw, 1rem)',
+              padding: '0 16px'
+            }}
+          >
             Fique informado com nossos últimos artigos e novidades.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 justify-items-center mx-auto" style={{ gap: '2rem', maxWidth: '100%' }}>
+        <div 
+          className={cn("grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3")} 
+          style={{ gap: '24px' }}
+        >
           {blogPosts.map((post, index) => (
             <FadeIn key={post.id} delay={index * 0.1}>
-              <GlassCard className="flex flex-col h-full p-0 overflow-hidden group border-0 w-full">
+              <GlassCard 
+                className="flex flex-col h-full p-0 overflow-hidden group border-0 hover:scale-105 transition-all duration-300"
+              >
                 <div className="h-48 overflow-hidden relative">
                   <img 
                     src={post.image} 
                     alt={post.title} 
                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                   />
-                  <div className="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                  <div 
+                    className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300" 
+                    style={{ backgroundColor: 'rgba(109, 40, 217, 0.2)' }}
+                  />
                 </div>
-                <div className="p-6 flex flex-col grow bg-white/5 backdrop-blur-md border-t border-white/10" style={{ padding: '1.5rem', alignItems: 'center', textAlign: 'center' }}>
-                  <h3 className="text-xl font-bold text-white mb-3 line-clamp-2 group-hover:text-accent transition-colors" style={{ marginBottom: '0.75rem', textAlign: 'center', width: '100%' }}>
+                <div 
+                  className="flex flex-col grow backdrop-blur-md border-t border-white/10" 
+                  style={{ 
+                    padding: '24px', 
+                    backgroundColor: 'rgba(255, 255, 255, 0.05)'
+                  }}
+                >
+                  <h3 
+                    className="font-bold text-white mb-3 line-clamp-2 group-hover:text-[#9F7AEA] transition-colors" 
+                    style={{ fontSize: '1.25rem', marginBottom: '12px' }}
+                  >
                     {post.title}
                   </h3>
-                  <p className="text-gray-400 mb-6 line-clamp-3 grow text-sm" style={{ marginBottom: '1.5rem', textAlign: 'center', width: '100%' }}>
+                  <p 
+                    className="text-gray-400 mb-6 line-clamp-3 grow" 
+                    style={{ 
+                      fontSize: '0.875rem', 
+                      marginBottom: '24px',
+                      lineHeight: '1.6'
+                    }}
+                  >
                     {post.content.substring(0, 150)}...
                   </p>
                   <Link 
                     to={`/blog/${post.id}`}
-                    className="inline-flex items-center gap-2 text-accent font-medium hover:text-white transition-colors mt-auto"
-                    style={{ justifyContent: 'center' }}
+                    className="inline-flex items-center gap-2 font-medium transition-colors mt-auto"
+                    style={{ 
+                      color: '#9F7AEA',
+                      alignSelf: 'flex-start'
+                    }}
                   >
                     Saiba Mais
                     <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />

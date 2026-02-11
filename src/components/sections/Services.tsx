@@ -1,7 +1,9 @@
 import { GlassCard } from '../ui/GlassCard';
 import { Code, Cloud, Smartphone, Layout, ShoppingCart, Settings, Cpu, Network } from 'lucide-react';
 import { FadeIn } from '../ui/FadeIn';
+import { Carousel } from '../ui/Carousel';
 import { cn } from '../../utils/cn';
+import { useState, useEffect } from 'react';
 
 const services = [
   {
@@ -47,6 +49,52 @@ const services = [
 ];
 
 export const Services = () => {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth < 768);
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+
+  const ServiceCard = ({ service, index }: { service: typeof services[0]; index: number }) => (
+    <GlassCard 
+      className="flex flex-col items-start hover:bg-white/10 transition-all duration-300 hover:scale-105"
+      style={{ 
+        height: '100%', 
+        padding: '32px',
+        gap: '16px',
+        minHeight: '280px'
+      }}
+    >
+      <div 
+        className="rounded-xl border border-white/10"
+        style={{ 
+          padding: '12px', 
+          backgroundColor: 'rgba(159, 122, 234, 0.1)',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center'
+        }}
+      >
+        {service.icon}
+      </div>
+      <h3 
+        className="font-bold text-white" 
+        style={{ fontSize: '1.125rem' }}
+      >
+        {service.title}
+      </h3>
+      <p 
+        className="text-gray-400" 
+        style={{ fontSize: '0.875rem', lineHeight: '1.6' }}
+      >
+        {service.description}
+      </p>
+    </GlassCard>
+  );
+
   return (
     <section id="services" style={{ padding: '80px 0', position: 'relative' }}>
       <div 
@@ -66,54 +114,32 @@ export const Services = () => {
           </h2>
           <p 
             className="text-gray-400" 
-            style={{ maxWidth: '672px', margin: '0 auto', fontSize: '1rem' }}
+            style={{ maxWidth: '672px', margin: '0 auto', fontSize: 'clamp(0.875rem, 2vw, 1rem)', padding: '0 16px' }}
           >
             Soluções completas para impulsionar a transformação digital da sua empresa.
           </p>
         </div>
 
-        <div 
-          className={cn("grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4")} 
-          style={{ gap: '24px' }}
-        >
-          {services.map((service, index) => (
-            <FadeIn key={index} delay={index * 0.1}>
-              <GlassCard 
-                className="flex flex-col items-start hover:bg-white/10 transition-colors"
-                style={{ 
-                  height: '100%', 
-                  padding: '32px',
-                  gap: '16px'
-                }}
-              >
-                <div 
-                  className="rounded-xl border border-white/10"
-                  style={{ 
-                    padding: '12px', 
-                    backgroundColor: 'rgba(255, 255, 255, 0.05)',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center'
-                  }}
-                >
-                  {service.icon}
-                </div>
-                <h3 
-                  className="font-bold text-white" 
-                  style={{ fontSize: '1.125rem' }}
-                >
-                  {service.title}
-                </h3>
-                <p 
-                  className="text-gray-400" 
-                  style={{ fontSize: '0.875rem', lineHeight: '1.6' }}
-                >
-                  {service.description}
-                </p>
-              </GlassCard>
-            </FadeIn>
-          ))}
-        </div>
+        {isMobile ? (
+          <Carousel showDots showArrows>
+            {services.map((service, index) => (
+              <div key={index} style={{ padding: '0 16px' }}>
+                <ServiceCard service={service} index={index} />
+              </div>
+            ))}
+          </Carousel>
+        ) : (
+          <div 
+            className={cn("grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4")} 
+            style={{ gap: '24px' }}
+          >
+            {services.map((service, index) => (
+              <FadeIn key={index} delay={index * 0.1}>
+                <ServiceCard service={service} index={index} />
+              </FadeIn>
+            ))}
+          </div>
+        )}
       </div>
     </section>
   );

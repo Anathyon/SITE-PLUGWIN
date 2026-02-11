@@ -53,3 +53,32 @@ body {
 html {
   scroll-behavior: smooth;
 }
+
+/* Melhorias de responsividade */
+@media (max-width: 768px) {
+  body {
+    overflow-x: hidden;
+  }
+  
+  /* Previne zoom em inputs no iOS */
+  input, select, textarea {
+    font-size: 16px !important;
+  }
+}
+
+/* Animações suaves para hover */
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Melhora performance de animações */
+.transition-transform,
+.transition-all {
+  will-change: transform;
+}
+
+/* Garante que imagens sejam responsivas */
+img {
+  max-width: 100%;
+  height: auto;
+}

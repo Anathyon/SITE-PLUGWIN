@@ -32,6 +32,18 @@ export const Navbar = () => {
     };
   }, []);
 
+  // Lock body scroll when mobile menu is open
+  useEffect(() => {
+    if (isMobileMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [isMobileMenuOpen]);
+
   const handleNavClick = (href: string) => {
     setIsMobileMenuOpen(false);
     if (location.pathname !== '/') {
@@ -58,11 +70,12 @@ export const Navbar = () => {
   return (
     <nav
       className={cn(
-        "fixed top-0 left-0 right-0 z-50 transition-all duration-500 ease-out",
+        "fixed top-0 left-0 right-0 transition-all duration-500 ease-out",
         isScrolled ? "bg-[#0f1016]/95 backdrop-blur-md border-b border-white/10" : "bg-transparent"
       )}
       style={{
-        padding: isScrolled ? '12px 24px' : '30px 24px'
+        padding: isScrolled ? '12px 24px' : '30px 24px',
+        zIndex: 9997
       }}
     >
       <div 
@@ -157,88 +170,110 @@ export const Navbar = () => {
         </button>
       </div>
 
-      {/* Mobile Sidebar Overlay */}
-      <div 
-        className={cn(
-          "fixed inset-0 bg-black/60 z-40 transition-opacity duration-300 md:hidden",
-          isMobileMenuOpen ? "opacity-100 visible" : "opacity-0 invisible pointer-events-none"
-        )}
-        onClick={() => setIsMobileMenuOpen(false)}
-      />
+      {/* Mobile Sidebar Overlay - Backdrop */}
+      {isMobileMenuOpen && (
+        <div 
+          className="fixed inset-0 bg-black/70 backdrop-blur-sm md:hidden"
+          style={{ 
+            zIndex: 99998,
+            position: 'fixed',
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0
+          }}
+          onClick={() => setIsMobileMenuOpen(false)}
+        />
+      )}
 
       {/* Mobile Sidebar */}
-      <div 
-        className={cn(
-          "fixed top-0 right-0 h-full w-[300px] bg-[#0f1016] z-50 transition-transform duration-300 transform md:hidden flex flex-col shadow-2xl border-l border-white/10",
-          isMobileMenuOpen ? "translate-x-0" : "translate-x-full"
-        )}
-      >
-        <div className="flex items-center justify-between border-b border-white/10" style={{ padding: '24px' }}>
-          <span className="text-white font-semibold text-lg">Menu</span>
-          <button 
-            onClick={() => setIsMobileMenuOpen(false)}
-            className="text-gray-400 hover:text-white transition-colors bg-transparent border-none cursor-pointer p-1"
+      {isMobileMenuOpen && (
+        <div 
+          className="fixed top-0 right-0 bottom-0 w-[300px] bg-[#0f1016] md:hidden flex flex-col shadow-2xl border-l border-white/10"
+          style={{ 
+            zIndex: 99999,
+            position: 'fixed',
+            height: '100vh',
+            overflowY: 'auto'
+          }}
+        >
+          {/* Header */}
+          <div 
+            className="flex items-center justify-between border-b border-white/10" 
+            style={{ padding: '24px', flexShrink: 0 }}
           >
-            <X size={24} />
-          </button>
-        </div>
-
-        <div className="flex-1 overflow-y-auto flex flex-col" style={{ padding: '24px', gap: '16px' }}>
-          
-          <div className="border-b border-white/10" style={{ paddingBottom: '16px' }}>
-            <button
-              onClick={() => setIsMobileProductsOpen(!isMobileProductsOpen)}
-              className="w-full flex items-center justify-between text-gray-300 hover:text-white text-lg font-medium bg-transparent border-none cursor-pointer"
-              style={{ padding: '8px 0' }}
+            <span className="text-white font-semibold text-lg">Menu</span>
+            <button 
+              onClick={() => setIsMobileMenuOpen(false)}
+              className="text-gray-400 hover:text-white transition-colors bg-transparent border-none cursor-pointer"
+              style={{ padding: '4px' }}
+              aria-label="Fechar menu"
             >
-              <span>Produtos</span>
-              <ChevronDown 
-                className={cn(
-                  "w-5 h-5 transition-transform duration-300",
-                  isMobileProductsOpen ? "rotate-180" : ""
-                )} 
-              />
+              <X size={24} />
             </button>
-            
-            <div 
-              className={cn(
-                "transition-all duration-300 ease-in-out flex flex-col",
-                isMobileProductsOpen ? "opacity-100" : "opacity-0"
-              )}
-              style={{ 
-                gap: '8px', 
-                paddingLeft: '8px',
-                marginTop: isMobileProductsOpen ? '8px' : '0px',
-                maxHeight: isMobileProductsOpen ? '320px' : '0px',
-                overflowY: isMobileProductsOpen ? 'auto' : 'hidden'
-              }}
-            >
-              {projects.map((project) => (
-                <Link
-                  key={project.slug}
-                  to={`/project/${project.slug}`}
-                  className="text-gray-400 hover:text-white text-sm transition-colors border-l-2 border-transparent hover:border-[#6D28D9]"
-                  style={{ padding: '8px 0 8px 12px' }}
-                  onClick={() => setIsMobileMenuOpen(false)}
-                >
-                  {project.title}
-                </Link>
-              ))}
-            </div>
           </div>
-          
-          {navLinks.map((link) => (
-            <button
-              key={link.name}
-              onClick={() => handleNavClick(link.href)}
-              className="text-gray-300 hover:text-white text-lg font-medium text-left bg-transparent border-none cursor-pointer"
-              style={{ padding: '8px 0' }}
-            >
-              {link.name}
-            </button>
-          ))}
 
-          <button
+          {/* Content */}
+          <div 
+            className="flex-1 flex flex-col" 
+            style={{ padding: '24px', gap: '16px', overflowY: 'auto' }}
+          >
+            {/* Produtos Dropdown */}
+            <div className="border-b border-white/10" style={{ paddingBottom: '16px' }}>
+              <button
+                onClick={() => setIsMobileProductsOpen(!isMobileProductsOpen)}
+                className="w-full flex items-center justify-between text-gray-300 hover:text-white text-lg font-medium bg-transparent border-none cursor-pointer"
+                style={{ padding: '8px 0' }}
+              >
+                <span>Produtos</span>
+                <ChevronDown 
+                  className={cn(
+                    "w-5 h-5 transition-transform duration-300",
+                    isMobileProductsOpen ? "rotate-180" : ""
+                  )} 
+                />
+              </button>
+              
+              {isMobileProductsOpen && (
+                <div 
+                  className="flex flex-col"
+                  style={{ 
+                    gap: '8px', 
+                    paddingLeft: '8px',
+                    marginTop: '8px',
+                    maxHeight: '320px',
+                    overflowY: 'auto'
+                  }}
+                >
+                  {projects.map((project) => (
+                    <Link
+                      key={project.slug}
+                      to={`/project/${project.slug}`}
+                      className="text-gray-400 hover:text-white text-sm transition-colors border-l-2 border-transparent hover:border-[#6D28D9]"
+                      style={{ padding: '8px 0 8px 12px' }}
+                      onClick={() => setIsMobileMenuOpen(false)}
+                    >
+                      {project.title}
+                    </Link>
+                  ))}
+                </div>
+              )}
+            </div>
+            
+            {/* Nav Links */}
+            {navLinks.map((link) => (
+              <button
+                key={link.name}
+                onClick={() => handleNavClick(link.href)}
+                className="text-gray-300 hover:text-white text-lg font-medium text-left bg-transparent border-none cursor-pointer"
+                style={{ padding: '8px 0' }}
+              >
+                {link.name}
+              </button>
+            ))}
+
+            {/* CTA Button */}
+            <button
               onClick={() => handleNavClick('#contact')}
               className="w-full text-white rounded-lg font-medium shadow-lg hover:shadow-[#6D28D9]/50 transition-all cursor-pointer border-none"
               style={{
@@ -246,11 +281,12 @@ export const Navbar = () => {
                 padding: '12px 0',
                 marginTop: 'auto'
               }}
-          >
-            Fale Conosco
-          </button>
+            >
+              Fale Conosco
+            </button>
+          </div>
         </div>
-      </div>
+      )}
     </nav>
   );
 };

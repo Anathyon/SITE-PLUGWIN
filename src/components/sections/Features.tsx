@@ -1,5 +1,6 @@
 import { FadeIn } from '../ui/FadeIn';
 import { Users, Zap, ShieldCheck, CloudLightning } from 'lucide-react';
+import { cn } from '../../utils/cn';
 
 const features = [
   {
@@ -29,7 +30,7 @@ export const Features = () => {
     <section 
       className="border-y border-white/5 backdrop-blur-sm"
       style={{ 
-        padding: '40px 0', 
+        padding: 'clamp(32px, 5vw, 40px) 0', 
         backgroundColor: 'rgba(255, 255, 255, 0.05)' 
       }}
     >
@@ -42,20 +43,20 @@ export const Features = () => {
         }}
       >
         <div 
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4" 
-          style={{ gap: '32px' }}
+          className={cn("grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4")} 
+          style={{ gap: 'clamp(24px, 4vw, 32px)' }}
         >
           {features.map((feature, index) => (
             <FadeIn key={index} delay={index * 0.1} direction="up">
               <div 
-                className="flex items-center" 
+                className="flex items-center hover:scale-105 transition-transform duration-300" 
                 style={{ gap: '16px' }}
               >
                 <div 
-                  className="rounded-lg flex items-center justify-center" 
+                  className="rounded-lg flex items-center justify-center flex-shrink-0" 
                   style={{ 
                     padding: '8px', 
-                    backgroundColor: 'rgba(110, 31, 255, 0.2)' 
+                    backgroundColor: 'rgba(159, 122, 234, 0.2)' 
                   }}
                 >
                   {feature.icon}
@@ -63,13 +64,13 @@ export const Features = () => {
                 <div>
                   <h3 
                     className="text-white font-bold" 
-                    style={{ fontSize: '14px', marginBottom: '4px' }}
+                    style={{ fontSize: 'clamp(13px, 2vw, 14px)', marginBottom: '4px' }}
                   >
                     {feature.title}
                   </h3>
                   <p 
                     className="text-gray-400" 
-                    style={{ fontSize: '12px', lineHeight: '1.4' }}
+                    style={{ fontSize: 'clamp(11px, 1.8vw, 12px)', lineHeight: '1.4' }}
                   >
                     {feature.description}
                   </p>
