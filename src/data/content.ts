@@ -68,22 +68,22 @@ Em resumo, ter um site é uma forma eficaz de aumentar a visibilidade, a credibi
 export const testimonials = [
   {
     name: "Camara de Meruoca",
-    image: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&q=80&w=800",
+    image: "/assets/meruoca.png",
     text: "A qualidade e a dedicação da equipe foram excepcionais, entregando um serviço que superou todas as minhas expectativas. O sistema desenvolvido ficou intuitivo, moderno e com excelente desempenho. Sem dúvida, recomendo a Plugwin Sistemas para quem busca profissionalismo e inovação."
   },
   {
     name: "Panorama Broadcast",
-    image: "https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?auto=format&fit=crop&q=80&w=800",
+    image: "/assets/panorama_escale.jpg",
     text: "A equipe demonstrou profissionalismo e dedicação em cada etapa do projeto, entregando um sistema eficiente e intuitivo. A qualidade do design e a usabilidade superaram minhas expectativas, tornando a experiência ainda melhor. Recomendo fortemente!"
   },
   {
     name: "Studio Tassia Mendes",
-    image: "https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?auto=format&fit=crop&q=80&w=800",
+    image: "/assets/tassia.png",
     text: "Tive uma excelente experiência com a Plugwin Sistemas. A equipe entregou um trabalho de alto nível, com um site ágil, intuitivo e totalmente alinhado às minhas expectativas. Além disso, o suporte sempre foi rápido e eficiente, demonstrando comprometimento e seriedade. Sem dúvida, uma empresa que vale a pena confiar!"
   },
   {
     name: "JRC Locações",
-    image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=800",
+    image: "/assets/jrc.png",
     text: "A Plugwin Sistemas fez um trabalho excepcional! Desde o primeiro contato, a equipe se mostrou extremamente profissional e atenciosa, garantindo que todas as minhas necessidades fossem atendidas. O sistema desenvolvido ficou incrível, com uma interface moderna e fácil de usar. Estou muito satisfeito e recomendo a todos que buscam qualidade e inovação!"
   }
 ];
