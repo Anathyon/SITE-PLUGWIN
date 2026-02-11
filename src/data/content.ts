@@ -1,4 +1,6 @@
-export const blogPosts = [
+import type { BlogPost, Testimonial, Project } from '../types/content';
+
+export const blogPosts: BlogPost[] = [
   {
     id: 4,
     title: "Por que o ecommerce é essencial para o crescimento e expansão dos negócios",
@@ -65,7 +67,7 @@ Em resumo, ter um site é uma forma eficaz de aumentar a visibilidade, a credibi
   }
 ];
 
-export const testimonials = [
+export const testimonials: Testimonial[] = [
   {
     name: "Camara de Meruoca",
     image: "/assets/meruoca.png",
@@ -88,7 +90,7 @@ export const testimonials = [
   }
 ];
 
-export const projects = [
+export const projects: Project[] = [
   {
     slug: "pwmed",
     title: "PWMed",

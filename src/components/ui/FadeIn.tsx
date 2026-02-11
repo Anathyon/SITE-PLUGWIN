@@ -1,15 +1,13 @@
 import { motion } from 'framer-motion';
 import type { ReactNode } from 'react';
+import type { FadeInProps } from '../../types/components';
 
-interface FadeInProps {
-  children: ReactNode;
-  delay?: number;
-  direction?: 'up' | 'down' | 'left' | 'right';
+interface ExtendedFadeInProps extends FadeInProps {
   className?: string;
   style?: React.CSSProperties;
 }
 
-export const FadeIn = ({ children, delay = 0, direction = 'up', className, style }: FadeInProps) => {
+export const FadeIn = ({ children, delay = 0, direction = 'up', className, style }: ExtendedFadeInProps) => {
   const directions = {
     up: { y: 20 },
     down: { y: -20 },

@@ -4,8 +4,9 @@ import { FadeIn } from '../ui/FadeIn';
 import { Carousel } from '../ui/Carousel';
 import { cn } from '../../utils/cn';
 import { useState, useEffect } from 'react';
+import type { Service } from '../../types/content';
 
-const services = [
+const services: Service[] = [
   {
     icon: <Code style={{ width: '32px', height: '32px', color: '#9F7AEA' }} />,
     title: "Desenvolvimento de Sistemas",
@@ -58,7 +59,7 @@ export const Services = () => {
     return () => window.removeEventListener('resize', checkMobile);
   }, []);
 
-  const ServiceCard = ({ service, index }: { service: typeof services[0]; index: number }) => (
+  const ServiceCard = ({ service, index }: { service: Service; index: number }) => (
     <GlassCard 
       className="flex flex-col items-start hover:bg-white/10 transition-all duration-300 hover:scale-105"
       style={{ 
@@ -121,7 +122,7 @@ export const Services = () => {
         </div>
 
         {isMobile ? (
-          <Carousel showDots showArrows>
+          <Carousel showDots showArrows autoPlay interval={5000}>
             {services.map((service, index) => (
               <div key={index} style={{ padding: '0 16px' }}>
                 <ServiceCard service={service} index={index} />

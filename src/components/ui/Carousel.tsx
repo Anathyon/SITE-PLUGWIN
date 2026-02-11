@@ -1,14 +1,7 @@
 import { useState, useEffect, useRef, ReactNode } from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { cn } from '../../utils/cn';
-
-interface CarouselProps {
-  children: ReactNode[];
-  autoPlay?: boolean;
-  interval?: number;
-  showDots?: boolean;
-  showArrows?: boolean;
-}
+import type { CarouselProps } from '../../types/components';
 
 export const Carousel = ({ 
   children, 

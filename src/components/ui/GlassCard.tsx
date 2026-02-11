@@ -6,12 +6,7 @@
 import { motion } from 'framer-motion';
 import type { ReactNode } from 'react';
 import { cn } from '../../utils/cn';
-
-interface GlassCardProps {
-  children: ReactNode;
-  className?: string;
-  style?: React.CSSProperties;
-}
+import type { GlassCardProps } from '../../types/components';
 
 export const GlassCard = ({ children, className, style }: GlassCardProps) => {
   return (

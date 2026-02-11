@@ -1,11 +1,11 @@
 import { GlassCard } from '../ui/GlassCard';
 import { ExternalLink } from 'lucide-react';
-import { FadeIn } from '../ui/FadeIn';
 import { Carousel } from '../ui/Carousel';
 import { projects } from '../../data/content';
 import { Link } from 'react-router-dom';
 import { cn } from '../../utils/cn';
 import { useState, useEffect } from 'react';
+import type { Project } from '../../types/content';
 
 export const Projects = () => {
   const [isMobile, setIsMobile] = useState(false);
@@ -17,7 +17,7 @@ export const Projects = () => {
     return () => window.removeEventListener('resize', checkMobile);
   }, []);
 
-  const ProjectCard = ({ project }: { project: typeof projects[0] }) => (
+  const ProjectCard = ({ project }: { project: Project }) => (
     <Link 
       to={`/project/${project.slug}`} 
       style={{ display: 'block', height: '100%', textDecoration: 'none' }}
@@ -110,7 +110,7 @@ export const Projects = () => {
         </div>
 
         {isMobile ? (
-          <Carousel showDots showArrows>
+          <Carousel showDots showArrows autoPlay interval={5000}>
             {projects.map((project, index) => (
               <div key={index} style={{ padding: '0 16px' }}>
                 <ProjectCard project={project} />
@@ -118,16 +118,20 @@ export const Projects = () => {
             ))}
           </Carousel>
         ) : (
-          <div 
-            className={cn("grid grid-cols-1 md:grid-cols-2")} 
-            style={{ gap: '32px' }}
-          >
-            {projects.map((project, index) => (
-              <FadeIn key={index} delay={index * 0.2}>
-                <ProjectCard project={project} />
-              </FadeIn>
+          <Carousel showDots showArrows autoPlay interval={5000}>
+            {projects.reduce((acc: any[], project, index) => {
+              const pairIndex = Math.floor(index / 2);
+              if (!acc[pairIndex]) acc[pairIndex] = [];
+              acc[pairIndex].push(project);
+              return acc;
+            }, []).map((pair: typeof projects, pairIndex: number) => (
+              <div key={pairIndex} className={cn("grid grid-cols-2")} style={{ gap: '32px', padding: '0 16px' }}>
+                {pair.map((project) => (
+                  <ProjectCard key={project.slug} project={project} />
+                ))}
+              </div>
             ))}
-          </div>
+          </Carousel>
         )}
       </div>
     </section>
