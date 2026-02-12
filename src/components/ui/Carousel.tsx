@@ -72,13 +72,14 @@ export const Carousel = ({
         </div>
       </div>
 
-      <div className="flex items-center justify-center gap-4 mt-8">
+      <div className="flex items-center justify-center" style={{ gap: '16px', marginTop: '32px' }}>
         {showArrows && (
           <button
             onClick={goToPrevious}
             className={cn(
-              "bg-white hover:bg-gray-100 text-gray-700 rounded-full p-3.5 transition-all shadow-lg"
+              "bg-white hover:bg-gray-100 text-gray-700 rounded-full transition-all shadow-lg"
             )}
+            style={{ padding: '14px' }}
             aria-label="Anterior"
           >
             <ChevronLeft className="w-6 h-6" />
@@ -86,7 +87,7 @@ export const Carousel = ({
         )}
 
         {showDots && (
-          <div className="flex gap-2">
+          <div className="flex" style={{ gap: '8px' }}>
             {children.map((_, index) => (
               <button
                 key={index}
@@ -107,8 +108,9 @@ export const Carousel = ({
           <button
             onClick={goToNext}
             className={cn(
-              "bg-white hover:bg-gray-100 text-gray-700 rounded-full p-3.5 transition-all shadow-lg"
+              "bg-white hover:bg-gray-100 text-gray-700 rounded-full transition-all shadow-lg"
             )}
+            style={{ padding: '14px' }}
             aria-label="Próximo"
           >
             <ChevronRight className="w-6 h-6" />

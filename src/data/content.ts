@@ -1,10 +1,53 @@
-import type { BlogPost, Testimonial, Project } from '../types/content';
+import { 
+  Layout, 
+  Users, 
+  Heart, 
+  Activity, 
+  Shield, 
+  Clock, 
+  FileText, 
+  Database, 
+  Globe, 
+  Smartphone, 
+  Zap,
+  CheckCircle,
+  Vote,
+  School,
+  BarChart,
+  CheckSquare,
+  Layers,
+  Eye,
+  Search,
+  Folder,
+  Cloud,
+  Lock,
+  Mail,
+  MessageSquare,
+  FileCheck,
+  Building,
+  Megaphone
+} from 'lucide-react';
 
-export const blogPosts: BlogPost[] = [
+export interface Project {
+  slug: string;
+  title: string;
+  category: string;
+  description: string;
+  fullDescription: string;
+  image: string;
+  link: string;
+  features: { title: string; description: string }[];
+  benefits: { title: string; description: string }[];
+  heroCards?: { icon: string; title: string; description: string }[];
+  detailedFeatures?: { title: string; description: string; image: string; checkList: string[] }[];
+  structuredBenefits?: { icon: string; title: string; description: string }[];
+}
+
+export const blogPosts = [
   {
     id: 4,
     title: "Por que o ecommerce é essencial para o crescimento e expansão dos negócios",
-    image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&q=80&w=800",
+    image: "https://d.storage.plugwin.net/plugwin/371713612.png",
     content: `O comércio eletrônico, ou ecommerce, tem sido uma das indústrias de crescimento mais rápido nos últimos anos. Com o aumento das compras online, cada vez mais empresas estão adotando o ecommerce como uma forma de alcançar novos clientes e expandir seus negócios.
 
 Aqui estão algumas das principais razões pelas quais as empresas devem considerar a implementação do ecommerce:
@@ -26,7 +69,7 @@ Em resumo, o ecommerce oferece às empresas uma oportunidade de alcançar novos 
   {
     id: 3,
     title: "Por que ter um site é essencial para empresas e indivíduos em um mundo cada vez mais digital",
-    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=800",
+    image: "https://d.storage.plugwin.net/plugwin/593172240.png",
     content: `Se você é uma pessoa ou empresa que ainda não tem um site, é importante considerar os benefícios que ter uma presença online pode trazer. Aqui estão algumas razões pelas quais você deve ter um site:
 
 **Maior alcance:** Um site permite que você alcance um público muito maior do que seria possível por meio de métodos tradicionais, como publicidade em jornais ou panfletos. Com um site, você pode alcançar pessoas em qualquer lugar do mundo, a qualquer hora do dia.
@@ -48,7 +91,7 @@ Em resumo, ter um site pode trazer uma série de benefícios para sua empresa ou
   {
     id: 2,
     title: "6 razões pelas quais um site é essencial para empresas e pessoas na era digital",
-    image: "https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?auto=format&fit=crop&q=80&w=800",
+    image: "https://d.storage.plugwin.net/plugwin/904588659.jpeg",
     content: `Hoje em dia, ter um site é essencial tanto para empresas quanto para pessoas que desejam se destacar na internet. Aqui estão algumas das principais razões pelas quais você deve considerar a criação de um site para si mesmo ou para sua empresa:
 
 1. **Visibilidade na internet:** Ter um site permite que as pessoas encontrem você ou sua empresa na internet de maneira fácil e rápida. Isso aumenta a visibilidade e a credibilidade da sua marca, especialmente se o seu site for profissional e bem desenvolvido.
@@ -67,25 +110,25 @@ Em resumo, ter um site é uma forma eficaz de aumentar a visibilidade, a credibi
   }
 ];
 
-export const testimonials: Testimonial[] = [
+export const testimonials = [
   {
     name: "Camara de Meruoca",
-    image: "/assets/meruoca.png",
+    image: "https://site.plugwin.net/assets/img/testimonials/meruoca.png",
     text: "A qualidade e a dedicação da equipe foram excepcionais, entregando um serviço que superou todas as minhas expectativas. O sistema desenvolvido ficou intuitivo, moderno e com excelente desempenho. Sem dúvida, recomendo a Plugwin Sistemas para quem busca profissionalismo e inovação."
   },
   {
     name: "Panorama Broadcast",
-    image: "/assets/panorama_escale.jpg",
+    image: "https://site.plugwin.net/assets/img/testimonials/panorama_escale.jpg",
     text: "A equipe demonstrou profissionalismo e dedicação em cada etapa do projeto, entregando um sistema eficiente e intuitivo. A qualidade do design e a usabilidade superaram minhas expectativas, tornando a experiência ainda melhor. Recomendo fortemente!"
   },
   {
     name: "Studio Tassia Mendes",
-    image: "/assets/tassia.png",
+    image: "https://site.plugwin.net/assets/img/testimonials/tassia.png",
     text: "Tive uma excelente experiência com a Plugwin Sistemas. A equipe entregou um trabalho de alto nível, com um site ágil, intuitivo e totalmente alinhado às minhas expectativas. Além disso, o suporte sempre foi rápido e eficiente, demonstrando comprometimento e seriedade. Sem dúvida, uma empresa que vale a pena confiar!"
   },
   {
     name: "JRC Locações",
-    image: "/assets/jrc.png",
+    image: "https://site.plugwin.net/assets/img/testimonials/jrc.png",
     text: "A Plugwin Sistemas fez um trabalho excepcional! Desde o primeiro contato, a equipe se mostrou extremamente profissional e atenciosa, garantindo que todas as minhas necessidades fossem atendidas. O sistema desenvolvido ficou incrível, com uma interface moderna e fácil de usar. Estou muito satisfeito e recomendo a todos que buscam qualidade e inovação!"
   }
 ];
@@ -97,16 +140,42 @@ export const projects: Project[] = [
     category: "Saúde",
     description: "Sistema integrado de gestão de clínicas, projetado para simplificar e modernizar o atendimento ao Paciente.",
     fullDescription: "PWMed é um sistema integrado de gestão de clínicas, projetado para simplificar e modernizar o atendimento ao Paciente. Visa tornar o cuidado com o paciente mais eficiente e acolhedor, com ferramentas digitais que automatizam processos e uma abordagem centrada no ser humano.",
-    image: "https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&q=80&w=800",
+    image: "https://site.plugwin.net/assets/pwmed/img/quadro_agenda.jpeg",
     link: "https://site.plugwin.net/pwmed",
     features: [
-      "Atendimento Inteligente e Humanizado",
-      "Plataforma Centralizada",
-      "Interface Intuitiva",
-      "Foco no Paciente",
-      "Agilidade e Organização",
-      "Cadastro de Pacientes",
-      "Gestão Financeira"
+      { title: "Atendimento Inteligente e Humanizado", description: "Visa tornar o cuidado com o paciente mais eficiente e acolhedor." },
+      { title: "Plataforma Centralizada", description: "Integra agendamentos, prontuários eletrônicos e faturamento." }
+    ],
+    benefits: [
+      { title: "Integração total", description: "O PWMed oferece integração total com sistemas de faturamento e seguros." }
+    ],
+    heroCards: [
+      { icon: "Heart", title: "Atendimento Humanizado", description: "Foco total na experiência e bem-estar do paciente." },
+      { icon: "Layout", title: "Plataforma Centralizada", description: "Todos os dados e processos em um único lugar seguro." },
+      { icon: "Users", title: "Interface Intuitiva", description: "Design pensado para facilitar o dia a dia dos profissionais." },
+      { icon: "Activity", title: "Foco no Paciente", description: "Jornada ágil e assertiva desde o primeiro contato." }
+    ],
+    detailedFeatures: [
+      { 
+        title: "Criação de Usuários e Gestão de Acessos", 
+        description: "Estrutura de acesso inteligente e personalizada. Cada usuário é cadastrado conforme sua função, com permissões específicas que otimizam o fluxo de trabalho e garantem segurança total da informação.",
+        image: "https://site.plugwin.net/assets/pwmed/img/quadro_agenda.jpeg",
+        checkList: ["Perfis personalizados", "Controle total de logs", "Segurança avançada"]
+      },
+      { 
+        title: "Cadastro de Pacientes Simplificado", 
+        description: "Uma jornada ágil e intuitiva. Do primeiro contato ao histórico completo, tudo na palma da mão. Garantimos praticidade e eficiência em cada etapa do atendimento.",
+        image: "https://site.plugwin.net/assets/pwmed/img/quadro_agenda.jpeg",
+        checkList: ["Histórico completo", "Praticidade garantida", "Acesso rápido"]
+      }
+    ],
+    structuredBenefits: [
+      { icon: "CheckCircle", title: "Integração Total", description: "Sistemas de faturamento e operadoras de seguros em um só lugar." },
+      { icon: "CheckCircle", title: "Suporte 24/7", description: "Equipe técnica disponível todos os dias para te auxiliar." },
+      { icon: "CheckCircle", title: "Melhorias Contínuas", description: "Atualizações frequentes baseadas no feedback dos usuários." },
+      { icon: "CheckCircle", title: "Preços Transparentes", description: "Planos acessíveis e sem taxas inesperadas." },
+      { icon: "CheckCircle", title: "Gestão Eficiente", description: "Relatórios estratégicos para decisões mais inteligentes." },
+      { icon: "CheckCircle", title: "Agilidade", description: "Simplifique a rotina da sua clínica com poucos cliques." }
     ]
   },
   {
@@ -114,16 +183,36 @@ export const projects: Project[] = [
     title: "PWLeg",
     category: "Legislativo",
     description: "A Solução Completa para Votação Digital, Gestão de Tempo e Chamadas.",
-    fullDescription: "O PWLeg é um sistema que vai agilizar o trabalho parlamentar, otimizando o processo legislativo de votação e discussão das matérias. Possui controle de tempo, geração de relatórios automáticos, resultados de votações e tempo de fala, além de controle de presença.",
-    image: "https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&q=80&w=800",
+    fullDescription: "O PWLeg é um sistema que vai agilizar o trabalho parlamentar, otimizando o processo legislativo de votação e discussão das matérias.",
+    image: "https://site.plugwin.net/assets/img/legislativo/votacao_painel.png",
     link: "https://site.plugwin.net/pwleg",
-    features: [
-      "Transparência",
-      "Modalidade de Votação",
-      "Exibição Instantânea dos Resultados",
-      "Gestão de Tempo",
-      "Elaboração Automatizada de Atas",
-      "Gestão Eficiente de Presenças"
+    features: [],
+    benefits: [],
+    heroCards: [
+      { icon: "Vote", title: "Votação Eletrônica", description: "Permite que os participantes registrem seus votos de forma rápida." },
+      { icon: "Clock", title: "Controle de Tempo", description: "Tribuna equipada com controle de tempo e sistema de sirene." },
+      { icon: "FileText", title: "Atas Automatizadas", description: "Agiliza a criação de registros oficiais de reuniões." },
+      { icon: "Users", title: "Gestão de Presenças", description: "Monitora e registra a participação de indivíduos." }
+    ],
+    detailedFeatures: [
+      {
+        title: "Gestão Completa do Processo Legislativo",
+        description: "Organiza, monitora e agiliza todas as etapas relacionadas à criação e tramitação de propostas, garantindo transparência e eficiência.",
+        image: "https://site.plugwin.net/assets/img/legislativo/votacao_painel.png",
+        checkList: ["Tramitação digital", "Transparência total", "Histórico de votações"]
+      },
+      {
+        title: "Painel de Votação em Tempo Real",
+        description: "Acompanhe em tempo real os desdobramentos de uma votação diretamente no painel, com resultados instantâneos e precisos.",
+        image: "https://site.plugwin.net/assets/img/legislativo/votacao_painel.png",
+        checkList: ["Resultados instantâneos", "Visualização clara", "Auditoria simplificada"]
+      }
+    ],
+    structuredBenefits: [
+      { icon: "CheckCircle", title: "Atualizações garantidas", description: "Somos os mantenedores oficiais do PWLeg." },
+      { icon: "CheckCircle", title: "Evolução constante", description: "Seu investimento impulsiona o aprimoramento do software." },
+      { icon: "CheckCircle", title: "Embarque facilitado", description: "Nossa equipe simplifica todo o processo de adoção." },
+      { icon: "CheckCircle", title: "Consultoria de Sucesso", description: "Estamos aqui para superar os desafios junto com você." }
     ]
   },
   {
@@ -131,124 +220,406 @@ export const projects: Project[] = [
     title: "PWEdu",
     category: "Educação",
     description: "Plataforma que otimiza a Gestão Escolar através da análise inteligente de dados.",
-    fullDescription: "O PWEdu é uma plataforma que otimiza a Gestão Escolar através da análise inteligente de dados. Oferece gestão eficiente de servidores, gestão de documentos e arquivos, integração com Educacenso/INEP e um sistema adaptativo de avaliação.",
-    image: "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&q=80&w=800",
+    fullDescription: "O PWEdu é uma plataforma que otimiza a Gestão Escolar através da análise inteligente de dados. Oferece gestão eficiente de servidores, gestão de documentos e arquivos.",
+    image: "https://site.plugwin.net/assets/img/censovdc.png",
     link: "https://site.plugwin.net/pwedu",
-    features: [
-      "100% Online e Acessível",
-      "Atualização Instantânea de Dados",
-      "Sistema Adaptativo de Avaliação",
-      "Métricas de Desempenho Detalhadas",
-      "Controle de Infraestrutura",
-      "Educacenso/INEP"
+    features: [],
+    benefits: [],
+    heroCards: [
+      { icon: "School", title: "Gestão Escolar", description: "Controle total da infraestrutura e recursos escolares." },
+      { icon: "FileText", title: "Documentos", description: "Armazenamento e acesso a documentos importantes." },
+      { icon: "Users", title: "Servidores", description: "Gerenciamento completo de alocações e afastamentos." },
+      { icon: "BarChart", title: "Métricas", description: "Mais de 150 relatórios e indicadores detalhados." }
+    ],
+    detailedFeatures: [
+      {
+        title: "Integração com Educacenso/INEP",
+        description: "Importação e exportação automatizadas dos dados do censo escolar, garantindo conformidade e agilidade nos processos administrativos.",
+        image: "https://site.plugwin.net/assets/img/censovdc.png",
+        checkList: ["Automação de dados", "Conformidade legal", "Redução de erros"]
+      },
+      {
+        title: "Avaliação Adaptativa",
+        description: "Sistema de avaliação e relatórios personalizados com opções de notas numéricas ou conceitos, adaptando-se à metodologia da escola.",
+        image: "https://site.plugwin.net/assets/img/censovdc.png",
+        checkList: ["Relatórios personalizados", "Flexibilidade avaliativa", "Acompanhamento pedagógico"]
+      }
+    ],
+    structuredBenefits: [
+      { icon: "CheckCircle", title: "Atualizações garantidas", description: "Somos os mantenedores oficiais do PWEdu." },
+      { icon: "CheckCircle", title: "Impulso à educação", description: "Seu investimento contribui para o aprimoramento." },
+      { icon: "CheckCircle", title: "Embarque facilitado", description: "Entrega de solução personalizada e configurada." },
+      { icon: "CheckCircle", title: "Sua voz é fundamental", description: "Você poderá direcionar o futuro do software." }
     ]
-  },
-  {
-    slug: "portal-legislativo",
-    title: "Portal Legislativo",
-    category: "Governo",
-    description: "Plataforma digital intuitiva para facilitar o acesso à gestão legislativa municipal.",
-    fullDescription: "O Portal Legislativo é uma plataforma digital intuitiva desenvolvida para facilitar o acesso à gestão legislativa municipal. Ele permite consultas a dados legislativos, transparência referente a contas públicas (RGF, receitas e despesas) e oferece um espaço para reclamações (ouvidoria e e-SIC).",
-    image: "https://images.unsplash.com/photo-1589829085413-56de8ae18c73?auto=format&fit=crop&q=80&w=800",
-    link: "https://camarameruoca.ce.gov.br/"
-  },
-  {
-    slug: "panorama-broadcast",
-    title: "Panorama Broadcast",
-    category: "Streaming",
-    description: "Plataforma de transmissão e streaming de vídeo com qualidade 4K.",
-    fullDescription: "Uma transmissão diferente de tudo que você já viu! Câmeras com qualidade 4K, estrutura móvel, produtora audiovisual e streaming de vídeo de alta qualidade.",
-    image: "https://images.unsplash.com/photo-1492619375914-88005aa9e8fb?auto=format&fit=crop&q=80&w=800",
-    link: "https://panoramabroadcast.com.br/"
   },
   {
     slug: "pwork",
     title: "PWork",
     category: "Gestão",
-    description: "Solução completa para gestão de processos e produtividade.",
-    fullDescription: "O PWork oferece ferramentas avançadas para gestão de tarefas, equipes e projetos, garantindo maior produtividade e organização para sua empresa.",
-    image: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&q=80&w=800",
-    link: "https://site.plugwin.net/pwork"
+    description: "Ferramenta para a gestão de tarefas e processos internos de uma organização.",
+    fullDescription: "Ferramenta para a gestão de tarefas e processos internos de uma organização. Ele ajuda a coordenar atividades, atribuir responsabilidades e monitorar o andamento.",
+    image: "https://site.plugwin.net/assets/pwork/img/mulher_home.jpg",
+    link: "https://site.plugwin.net/pwork",
+    features: [],
+    benefits: [],
+    heroCards: [
+      { icon: "CheckSquare", title: "Tarefas", description: "Organização e distribuição das atividades de forma harmoniosa." },
+      { icon: "BarChart", title: "Eficiência", description: "Análise de indicadores de desempenho e cumprimento de metas." },
+      { icon: "Users", title: "Delegação", description: "Atribuição de tarefas às pessoas mais qualificadas." },
+      { icon: "Layers", title: "Centralização", description: "Centraliza informações e facilita a comunicação." }
+    ],
+    detailedFeatures: [
+      {
+        title: "Gestão Centralizada de Processos",
+        description: "Priorização de tarefas, monitoramento de prazos e recursos em um único lugar, garantindo que nada se perca no dia a dia.",
+        image: "https://site.plugwin.net/assets/pwork/img/mulher_home.jpg",
+        checkList: ["Monitoramento de prazos", "Priorização clara", "Recursos otimizados"]
+      },
+      {
+        title: "Plataforma Organizacional",
+        description: "Centraliza informações e facilita a comunicação entre equipes, promovendo um ambiente de trabalho mais colaborativo e eficiente.",
+        image: "https://site.plugwin.net/assets/pwork/img/mulher_home.jpg",
+        checkList: ["Comunicação fluida", "Informação acessível", "Colaboração real"]
+      }
+    ],
+    structuredBenefits: [
+      { icon: "CheckCircle", title: "Atualizações garantidas", description: "Somos os mantenedores oficiais do PWork." },
+      { icon: "CheckCircle", title: "Impulso à gestão", description: "Seu investimento contribui para o aprimoramento." },
+      { icon: "CheckCircle", title: "Embarque facilitado", description: "Solução personalizada e configurada." },
+      { icon: "CheckCircle", title: "Consultoria de Sucesso", description: "Superamos desafios junto com você." }
+    ]
   },
   {
     slug: "diario",
     title: "Diário Oficial",
     category: "Governo",
-    description: "Publicação e gestão de atos oficiais com transparência e segurança.",
-    fullDescription: "Sistema para publicação, gestão e consulta de atos oficiais, garantindo transparência e conformidade legal para órgãos públicos.",
-    image: "https://images.unsplash.com/photo-1505664194779-8beaceb93744?auto=format&fit=crop&q=80&w=800",
-    link: "https://site.plugwin.net/diario"
+    description: "Plataforma oficial para a publicação de atos administrativos e normativos.",
+    fullDescription: "Plataforma oficial para a publicação de atos administrativos e normativos de instituições públicas, incluindo leis, decretos, portarias e outros documentos.",
+    image: "https://site.plugwin.net/assets/diario/img/diario.jpg",
+    link: "https://site.plugwin.net/diario",
+    features: [],
+    benefits: [],
+    heroCards: [
+      { icon: "FileText", title: "Plataforma Oficial", description: "Centraliza e disponibiliza documentos como leis e decretos." },
+      { icon: "Eye", title: "Transparência", description: "Assegura que cidadãos possam consultar atos governamentais." },
+      { icon: "Shield", title: "Segurança", description: "Garante que documentos sejam acessíveis de forma confiável." },
+      { icon: "Search", title: "Consulta Fácil", description: "Consulta rápida e segura a leis e portarias." }
+    ],
+    detailedFeatures: [
+      {
+        title: "Portal de Divulgação Oficial",
+        description: "Espaço centralizado e acessível para a publicação de atos legais, garantindo que a informação chegue a quem precisa com total validade jurídica.",
+        image: "https://site.plugwin.net/assets/diario/img/diario.jpg",
+        checkList: ["Validade jurídica", "Acesso público", "Centralização"]
+      },
+      {
+        title: "Acesso Digital e Seguro",
+        description: "Consulta rápida e segura a leis, decretos e outros documentos oficiais, promovendo a transparência e o acesso à informação.",
+        image: "https://site.plugwin.net/assets/diario/img/diario.jpg",
+        checkList: ["Busca rápida", "Segurança de dados", "Transparência total"]
+      }
+    ],
+    structuredBenefits: [
+      { icon: "CheckCircle", title: "Atualizações garantidas", description: "Somos os mantenedores oficiais do Diário Oficial." },
+      { icon: "CheckCircle", title: "Impulso à transparência", description: "Seu investimento contribui para a melhoria." },
+      { icon: "CheckCircle", title: "Embarque facilitado", description: "Solução personalizada e configurada." },
+      { icon: "CheckCircle", title: "Consultoria de Sucesso", description: "Apoio contínuo para superar desafios." }
+    ]
   },
   {
     slug: "pwged",
     title: "PWGED",
     category: "Gestão",
-    description: "Gestão Eletrônica de Documentos para empresas e órgãos públicos.",
-    fullDescription: "O PWGED permite a digitalização, armazenamento e gestão segura de documentos, facilitando o acesso e reduzindo o uso de papel.",
-    image: "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&q=80&w=800",
-    link: "https://site.plugwin.net/pwged"
+    description: "Solução eficiente para a Gestão de Documentos e informações.",
+    fullDescription: "Uma solução eficiente para a Gestão de Documentos e informações dentro de uma organização. Permite o armazenamento, organização e controle de documentos.",
+    image: "https://site.plugwin.net/assets/pwged/img/pw_ged_gestao.jpg",
+    link: "https://site.plugwin.net/pwged",
+    features: [],
+    benefits: [],
+    heroCards: [
+      { icon: "Folder", title: "Organização", description: "Evolução da gestão de arquivos com maior controle digital." },
+      { icon: "Cloud", title: "Digital", description: "Armazenamento seguro e eficiente, eliminando papéis." },
+      { icon: "Search", title: "Busca Rápida", description: "Reduz tempo de busca e melhora a eficiência operacional." },
+      { icon: "Lock", title: "Segurança", description: "Documentos armazenados digitalmente de forma protegida." }
+    ],
+    detailedFeatures: [
+      {
+        title: "Armazenamento Inteligente",
+        description: "Utiliza tecnologia para organizar e classificar informações rapidamente, facilitando a recuperação de documentos importantes quando você mais precisa.",
+        image: "https://site.plugwin.net/assets/pwged/img/pw_ged_gestao.jpg",
+        checkList: ["Classificação automática", "Recuperação rápida", "Organização lógica"]
+      },
+      {
+        title: "Controle de Versões e Acesso",
+        description: "Garante que as versões mais recentes sejam facilmente acessíveis e que apenas pessoas autorizadas tenham acesso a informações sensíveis.",
+        image: "https://site.plugwin.net/assets/pwged/img/pw_ged_gestao.jpg",
+        checkList: ["Versionamento", "Controle de permissões", "Auditoria de acesso"]
+      }
+    ],
+    structuredBenefits: [
+      { icon: "CheckCircle", title: "Atualizações garantidas", description: "Somos os mantenedores oficiais do PW-GED." },
+      { icon: "CheckCircle", title: "Impulso à eficiência", description: "Seu investimento contribui para a melhoria." },
+      { icon: "CheckCircle", title: "Embarque facilitado", description: "Solução personalizada e configurada." },
+      { icon: "CheckCircle", title: "Consultoria de Sucesso", description: "Apoio contínuo para superar desafios." }
+    ]
   },
   {
     slug: "email",
-    title: "Webmail Corporativo",
+    title: "E-mails Institucionais",
     category: "Comunicação",
-    description: "Solução de e-mail corporativo seguro e profissional.",
-    fullDescription: "Acesso ao webmail corporativo com segurança, antispam e ferramentas de colaboração para sua equipe.",
-    image: "https://images.unsplash.com/photo-1557200134-90327ee9fafa?auto=format&fit=crop&q=80&w=800",
-    link: "https://site.plugwin.net/email"
+    description: "Contas de e-mail fornecidas a membros de uma organização para comunicação oficial e profissional.",
+    fullDescription: "Os e-mails institucionais são contas de e-mail fornecidas a membros de uma organização, como funcionários e departamentos, para comunicação oficial e profissional. Eles oferecem maior credibilidade, segurança e formalidade.",
+    image: "https://site.plugwin.net/assets/email/img/email.jpg",
+    link: "https://site.plugwin.net/email",
+    features: [],
+    benefits: [],
+    heroCards: [
+      { icon: "Shield", title: "Credibilidade", description: "Reforça a imagem profissional da empresa." },
+      { icon: "Lock", title: "Segurança", description: "Proteção contra ataques e controle de dados." },
+      { icon: "Users", title: "Conectividade", description: "Facilita o trabalho em equipe e a comunicação." },
+      { icon: "Mail", title: "Profissionalismo", description: "Comunicação clara, formal e segura." }
+    ],
+    detailedFeatures: [
+      {
+        title: "Comunicação Oficial e Segura",
+        description: "Garanta que as mensagens sejam claras, rastreáveis e alinhadas com a identidade da empresa, facilitando a comunicação interna e externa com total segurança.",
+        image: "https://site.plugwin.net/assets/email/img/email.jpg",
+        checkList: ["Rastreabilidade", "Identidade corporativa", "Segurança avançada"]
+      },
+      {
+        title: "Gestão Eficiente de Informações",
+        description: "Melhore a gestão de informações e aumente a eficiência na troca de dados entre equipes e com clientes, mantendo tudo organizado e acessível.",
+        image: "https://site.plugwin.net/assets/email/img/email.jpg",
+        checkList: ["Organização de dados", "Troca eficiente", "Acesso controlado"]
+      }
+    ],
+    structuredBenefits: [
+      { icon: "CheckCircle", title: "Atualizações garantidas", description: "Somos os mantenedores oficiais." },
+      { icon: "CheckCircle", title: "Impulso à educação", description: "Seu investimento contribui para o aprimoramento." },
+      { icon: "CheckCircle", title: "Embarque facilitado", description: "Solução personalizada e configurada." },
+      { icon: "CheckCircle", title: "Consultoria de Sucesso", description: "Apoio contínuo para superar desafios." }
+    ]
   },
   {
     slug: "esic",
-    title: "e-SIC",
+    title: "E-SIC",
     category: "Transparência",
     description: "Sistema Eletrônico do Serviço de Informação ao Cidadão.",
-    fullDescription: "Canal para que cidadãos possam solicitar informações públicas de forma fácil e transparente, conforme a Lei de Acesso à Informação.",
-    image: "https://images.unsplash.com/photo-1521791055366-0d553872125f?auto=format&fit=crop&q=80&w=800",
-    link: "https://site.plugwin.net/esic"
+    fullDescription: "Plataforma eletrônica que possibilita aos cidadãos solicitarem informações públicas diretamente a órgãos e entidades governamentais. Integrada à Lei de Acesso à Informação, assegura transparência e facilita o acesso a documentos.",
+    image: "https://site.plugwin.net/assets/esic/img/homes_home.jpg",
+    link: "https://site.plugwin.net/esic",
+    features: [],
+    benefits: [],
+    heroCards: [
+      { icon: "Eye", title: "Transparência", description: "Fortalece a transparência nas ações governamentais." },
+      { icon: "Globe", title: "Acesso Online", description: "Solicite informações públicas de forma simples e rápida." },
+      { icon: "Users", title: "Cidadania", description: "Incentiva a participação da sociedade na administração." },
+      { icon: "FileCheck", title: "Lei de Acesso", description: "Integrada à Lei de Acesso à Informação." }
+    ],
+    detailedFeatures: [
+      {
+        title: "Solicitação de Informações Simplificada",
+        description: "Permite que os cidadãos solicitem de forma simples e rápida informações públicas diretamente aos órgãos governamentais, garantindo um processo transparente e eficiente.",
+        image: "https://site.plugwin.net/assets/esic/img/homes_home.jpg",
+        checkList: ["Processo simples", "Rapidez no pedido", "Eficiência garantida"]
+      },
+      {
+        title: "Acompanhamento de Pedidos",
+        description: "O sistema permite acompanhar o status das solicitações, assegurando que o cidadão tenha resposta dentro dos prazos legais e com a devida clareza.",
+        image: "https://site.plugwin.net/assets/esic/img/homes_home.jpg",
+        checkList: ["Status em tempo real", "Cumprimento de prazos", "Clareza na resposta"]
+      }
+    ],
+    structuredBenefits: [
+      { icon: "CheckCircle", title: "Atualizações garantidas", description: "Somos os mantenedores oficiais do E-SIC." },
+      { icon: "CheckCircle", title: "Impulso à educação", description: "Seu investimento contribui para o aprimoramento." },
+      { icon: "CheckCircle", title: "Embarque facilitado", description: "Solução personalizada e configurada." },
+      { icon: "CheckCircle", title: "Consultoria de Sucesso", description: "Apoio contínuo para superar desafios." }
+    ]
   },
   {
     slug: "corporativo",
-    title: "Portal Corporativo",
-    category: "Gestão",
-    description: "Área restrita para colaboradores e gestão interna.",
-    fullDescription: "Portal corporativo para acesso a ferramentas internas, comunicados e gestão de recursos humanos.",
-    image: "https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=800",
-    link: "https://site.plugwin.net/corporativo"
+    title: "Site Institucional",
+    category: "Corporativo",
+    description: "Vitrine digital para empresas e organizações privadas.",
+    fullDescription: "Destinado a empresas e organizações privadas, o site institucional funciona como uma vitrine digital, apresentando informações institucionais, produtos, serviços, missão, visão e valores da empresa.",
+    image: "https://site.plugwin.net/assets/corporativo/img/panorama_site.png",
+    link: "https://site.plugwin.net/corporativo",
+    features: [],
+    benefits: [],
+    heroCards: [
+      { icon: "Globe", title: "Vitrine Digital", description: "Apresenta sua identidade, produtos e serviços." },
+      { icon: "Building", title: "Identidade", description: "Reflete a identidade e valores da empresa." },
+      { icon: "Eye", title: "Visibilidade", description: "Amplia a visibilidade no mercado e atrai clientes." },
+      { icon: "Megaphone", title: "Comunicação", description: "Facilita o contato e a interação com clientes." }
+    ],
+    detailedFeatures: [
+      {
+        title: "Apresentação de Produtos e Serviços",
+        description: "Organize e apresente seus produtos e serviços de forma atrativa e acessível, facilitando para o cliente encontrar o que precisa e entender o valor da sua oferta.",
+        image: "https://site.plugwin.net/assets/corporativo/img/panorama_site.png",
+        checkList: ["Organização clara", "Design atrativo", "Foco no valor"]
+      },
+      {
+        title: "Canal de Comunicação Eficiente",
+        description: "Estabeleça um canal direto com seus clientes através de formulários de contato, integração com redes sociais e informações claras de atendimento.",
+        image: "https://site.plugwin.net/assets/corporativo/img/panorama_site.png",
+        checkList: ["Contato direto", "Integração social", "Atendimento claro"]
+      }
+    ],
+    structuredBenefits: [
+      { icon: "CheckCircle", title: "Atualizações garantidas", description: "Somos os mantenedores oficiais." },
+      { icon: "CheckCircle", title: "Impulso à educação", description: "Seu investimento contribui para o aprimoramento." },
+      { icon: "CheckCircle", title: "Embarque facilitado", description: "Solução personalizada e configurada." },
+      { icon: "CheckCircle", title: "Consultoria de Sucesso", description: "Apoio contínuo para superar desafios." }
+    ]
   },
   {
     slug: "ouvidoria",
     title: "Ouvidoria",
-    category: "Atendimento",
-    description: "Canal de comunicação para sugestões, reclamações e elogios.",
-    fullDescription: "Sistema de ouvidoria para registro e acompanhamento de manifestações dos cidadãos ou clientes.",
-    image: "https://images.unsplash.com/photo-1534536281715-e28d76689b4d?auto=format&fit=crop&q=80&w=800",
-    link: "https://site.plugwin.net/ouvidoria"
+    category: "Controle",
+    description: "Sistema completo para receber, analisar e encaminhar demandas da população.",
+    fullDescription: "O Sistema de Ouvidoria é uma ferramenta completa para receber, analisar e encaminhar demandas da população, como denúncias, reclamações, elogios e sugestões. Garante transparência e agilidade no tratamento das manifestações.",
+    image: "https://site.plugwin.net/assets/ouvidoria/img/mulher_home.jpg",
+    link: "https://site.plugwin.net/ouvidoria",
+    features: [],
+    benefits: [],
+    heroCards: [
+      { icon: "MessageSquare", title: "Manifestações", description: "Receba denúncias, reclamações, elogios e sugestões." },
+      { icon: "Clock", title: "Agilidade", description: "Garante agilidade no atendimento e soluções eficientes." },
+      { icon: "Eye", title: "Transparência", description: "Acompanhamento em tempo real do andamento dos processos." },
+      { icon: "Shield", title: "Sigilo", description: "Registro de denúncias de forma confidencial e segura." }
+    ],
+    detailedFeatures: [
+      {
+        title: "Gestão Completa de Manifestações",
+        description: "Gerencie todas as demandas em um só lugar, classificando por tipo (denúncia, elogio, reclamação) e encaminhando para os setores responsáveis com total rastreabilidade.",
+        image: "https://site.plugwin.net/assets/ouvidoria/img/mulher_home.jpg",
+        checkList: ["Classificação automática", "Encaminhamento ágil", "Rastreabilidade total"]
+      },
+      {
+        title: "Acompanhamento pelo Cidadão",
+        description: "Permite que o cidadão acompanhe o status da sua manifestação através de um número de protocolo, garantindo transparência e confiança no processo.",
+        image: "https://site.plugwin.net/assets/ouvidoria/img/mulher_home.jpg",
+        checkList: ["Protocolo único", "Consulta online", "Feedback claro"]
+      }
+    ],
+    structuredBenefits: [
+      { icon: "CheckCircle", title: "Atualizações garantidas", description: "Somos os mantenedores oficiais." },
+      { icon: "CheckCircle", title: "Impulso à educação", description: "Seu investimento contribui para o aprimoramento." },
+      { icon: "CheckCircle", title: "Embarque facilitado", description: "Solução personalizada e configurada." },
+      { icon: "CheckCircle", title: "Consultoria de Sucesso", description: "Apoio contínuo para superar desafios." }
+    ]
   },
   {
     slug: "instlegis",
     title: "Institucional Legislativo",
-    category: "Governo",
-    description: "Portal institucional para Câmaras Municipais.",
-    fullDescription: "Site institucional completo para Câmaras Municipais, com notícias, agenda e informações sobre vereadores.",
-    image: "https://images.unsplash.com/photo-1555421689-d68471e189f2?auto=format&fit=crop&q=80&w=800",
-    link: "https://site.plugwin.net/instlegis"
+    category: "Legislativo",
+    description: "Solução completa para a divulgação de informações legislativas.",
+    fullDescription: "Desenvolvido especialmente para câmaras municipais e demais órgãos do Poder Legislativo, o sistema oferece uma solução completa para a divulgação de informações legislativas e a promoção da transparência pública.",
+    image: "https://site.plugwin.net/assets/instlegis/img/vereadores.png",
+    link: "https://site.plugwin.net/instlegis",
+    features: [],
+    benefits: [],
+    heroCards: [
+      { icon: "FileText", title: "Documentos", description: "Repositório completo de leis, decretos e projetos." },
+      { icon: "Users", title: "Legisladores", description: "Informações sobre vereadores e atividades parlamentares." },
+      { icon: "Eye", title: "Transparência", description: "Acesso fácil e seguro às informações governamentais." },
+      { icon: "Layers", title: "Integração", description: "Integração eficiente com o Portal Legislativo PW." }
+    ],
+    detailedFeatures: [
+      {
+        title: "Gestão de Sessões e Pautas",
+        description: "Acompanhamento detalhado das sessões plenárias, pautas de votação e atas, permitindo que a população fique por dentro das decisões legislativas.",
+        image: "https://site.plugwin.net/assets/instlegis/img/vereadores.png",
+        checkList: ["Pautas online", "Atas disponíveis", "Histórico de sessões"]
+      },
+      {
+        title: "Perfil dos Parlamentares",
+        description: "Área dedicada para apresentar os vereadores, suas biografias, projetos apresentados e contatos, aproximando o legislativo da comunidade.",
+        image: "https://site.plugwin.net/assets/instlegis/img/vereadores.png",
+        checkList: ["Biografia completa", "Projetos do autor", "Canais de contato"]
+      }
+    ],
+    structuredBenefits: [
+      { icon: "CheckCircle", title: "Atualizações garantidas", description: "Somos os mantenedores oficiais." },
+      { icon: "CheckCircle", title: "Impulso à educação", description: "Seu investimento contribui para o aprimoramento." },
+      { icon: "CheckCircle", title: "Embarque facilitado", description: "Solução personalizada e configurada." },
+      { icon: "CheckCircle", title: "Consultoria de Sucesso", description: "Apoio contínuo para superar desafios." }
+    ]
   },
   {
     slug: "instexec",
     title: "Institucional Executivo",
-    category: "Governo",
-    description: "Portal institucional para Prefeituras e órgãos executivos.",
-    fullDescription: "Site institucional para Prefeituras, com serviços ao cidadão, notícias e transparência.",
-    image: "https://images.unsplash.com/photo-1577412647305-991150c7d163?auto=format&fit=crop&q=80&w=800",
-    link: "https://site.plugwin.net/instexec"
+    category: "Executivo",
+    description: "Projetado para instituições do Poder Executivo, como prefeituras e governos.",
+    fullDescription: "Projetado para instituições do Poder Executivo, como prefeituras, governos e secretarias, o sistema fornece uma integração eficiente e otimizada com o Portal Executivo PW.",
+    image: "https://site.plugwin.net/assets/instexec/img/mulher_home.jpg",
+    link: "https://site.plugwin.net/instexec",
+    features: [],
+    benefits: [],
+    heroCards: [
+      { icon: "Building", title: "Gestão Pública", description: "Melhora a gestão e a eficiência administrativa." },
+      { icon: "Globe", title: "População", description: "Informações disponíveis de forma acessível e segura." },
+      { icon: "Eye", title: "Transparência", description: "Promove a transparência na gestão pública." },
+      { icon: "Layers", title: "Integração", description: "Integração otimizada com o Portal Executivo PW." }
+    ],
+    detailedFeatures: [
+      {
+        title: "Portal da Transparência Integrado",
+        description: "Disponibilize contas públicas, licitações, contratos e despesas de forma clara e organizada, cumprindo as exigências legais de transparência.",
+        image: "https://site.plugwin.net/assets/instexec/img/mulher_home.jpg",
+        checkList: ["Contas públicas", "Licitações em tempo real", "Conformidade legal"]
+      },
+      {
+        title: "Serviços ao Cidadão",
+        description: "Centralize os serviços oferecidos pela prefeitura ou secretaria em um portal digital, facilitando o acesso e reduzindo filas no atendimento presencial.",
+        image: "https://site.plugwin.net/assets/instexec/img/mulher_home.jpg",
+        checkList: ["Carta de serviços", "Atendimento digital", "Facilidade de acesso"]
+      }
+    ],
+    structuredBenefits: [
+      { icon: "CheckCircle", title: "Atualizações garantidas", description: "Somos os mantenedores oficiais." },
+      { icon: "CheckCircle", title: "Impulso à educação", description: "Seu investimento contribui para o aprimoramento." },
+      { icon: "CheckCircle", title: "Embarque facilitado", description: "Solução personalizada e configurada." },
+      { icon: "CheckCircle", title: "Consultoria de Sucesso", description: "Apoio contínuo para superar desafios." }
+    ]
   },
   {
     slug: "protocolo",
-    title: "Protocolo Digital",
+    title: "Sistema de Protocolo",
     category: "Gestão",
-    description: "Sistema de protocolo e tramitação de processos.",
-    fullDescription: "Gestão eletrônica de processos e documentos, permitindo a abertura e acompanhamento de protocolos online.",
-    image: "https://images.unsplash.com/photo-1616628188859-7a11abb6fcc9?auto=format&fit=crop&q=80&w=800",
-    link: "https://site.plugwin.net/protocolo"
+    description: "Gerencia o registro e o acompanhamento de documentos e processos.",
+    fullDescription: "Gerencia o registro e o acompanhamento de documentos e processos dentro de uma instituição. Sempre que um cidadão ou empresa realiza um pedido ou encaminha documentos, é gerado um protocolo para monitorar a tramitação.",
+    image: "https://site.plugwin.net/assets/protocolo/img/sistema_de_protocolo.png",
+    link: "https://site.plugwin.net/protocolo",
+    features: [],
+    benefits: [],
+    heroCards: [
+      { icon: "FileText", title: "Registro", description: "Gera protocolo para monitorar a tramitação." },
+      { icon: "Search", title: "Rastreabilidade", description: "Evita perdas e facilita a localização de arquivos." },
+      { icon: "Clock", title: "Agilidade", description: "Reduz atrasos e otimiza recursos na execução." },
+      { icon: "Shield", title: "Segurança", description: "Evita acessos não autorizados e fraudes." }
+    ],
+    detailedFeatures: [
+      {
+        title: "Tramitação Digital de Processos",
+        description: "Elimine o papel e ganhe agilidade com a tramitação 100% digital. Encaminhe processos entre setores com um clique e mantenha o histórico completo.",
+        image: "https://site.plugwin.net/assets/protocolo/img/sistema_de_protocolo.png",
+        checkList: ["Zero papel", "Histórico completo", "Encaminhamento rápido"]
+      },
+      {
+        title: "Controle de Prazos e Pendências",
+        description: "O sistema alerta sobre prazos vencendo e pendências em aberto, garantindo que nenhum processo fique parado e que o atendimento ao cidadão seja ágil.",
+        image: "https://site.plugwin.net/assets/protocolo/img/sistema_de_protocolo.png",
+        checkList: ["Alertas automáticos", "Gestão de pendências", "Cumprimento de prazos"]
+      }
+    ],
+    structuredBenefits: [
+      { icon: "CheckCircle", title: "Atualizações garantidas", description: "Somos os mantenedores oficiais." },
+      { icon: "CheckCircle", title: "Impulso à educação", description: "Seu investimento contribui para o aprimoramento." },
+      { icon: "CheckCircle", title: "Embarque facilitado", description: "Solução personalizada e configurada." },
+      { icon: "CheckCircle", title: "Consultoria de Sucesso", description: "Apoio contínuo para superar desafios." }
+    ]
   }
 ];

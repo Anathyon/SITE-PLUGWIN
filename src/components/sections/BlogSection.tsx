@@ -7,7 +7,7 @@ import { cn } from '../../utils/cn';
 
 export const BlogSection = () => {
   return (
-    <section id="blog" className="py-20 relative" style={{ marginTop: '0', marginBottom: '0' }}>
+    <section id="blog" className="relative" style={{ marginTop: '0', marginBottom: '0', paddingTop: '80px', paddingBottom: '80px' }}>
       <div 
         className="w-full" 
         style={{ 
@@ -46,7 +46,8 @@ export const BlogSection = () => {
           {blogPosts.map((post, index) => (
             <FadeIn key={post.id} delay={index * 0.1}>
               <GlassCard 
-                className="flex flex-col h-full p-0 overflow-hidden group border-0 hover:scale-105 transition-all duration-300"
+                className="flex flex-col h-full overflow-hidden group border-0 hover:scale-105 transition-all duration-300"
+                style={{ padding: 0 }}
               >
                 <div className="h-48 overflow-hidden relative">
                   <img 
@@ -67,13 +68,13 @@ export const BlogSection = () => {
                   }}
                 >
                   <h3 
-                    className="font-bold text-white mb-3 line-clamp-2 group-hover:text-[#9F7AEA] transition-colors" 
+                    className="font-bold text-white line-clamp-2 group-hover:text-[#9F7AEA] transition-colors" 
                     style={{ fontSize: '1.25rem', marginBottom: '12px' }}
                   >
                     {post.title}
                   </h3>
                   <p 
-                    className="text-gray-400 mb-6 line-clamp-3 grow" 
+                    className="text-gray-400 line-clamp-3 grow" 
                     style={{ 
                       fontSize: '0.875rem', 
                       marginBottom: '24px',
@@ -84,10 +85,11 @@ export const BlogSection = () => {
                   </p>
                   <Link 
                     to={`/blog/${post.id}`}
-                    className="inline-flex items-center gap-2 font-medium transition-colors mt-auto"
+                    className="inline-flex items-center font-medium transition-colors mt-auto"
                     style={{ 
                       color: '#9F7AEA',
-                      alignSelf: 'flex-start'
+                      alignSelf: 'flex-start',
+                      gap: '8px'
                     }}
                   >
                     Saiba Mais

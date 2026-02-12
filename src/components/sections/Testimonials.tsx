@@ -44,7 +44,7 @@ export const Testimonials = () => {
               >
                 <div className="flex items-start" style={{ gap: '16px', marginBottom: '20px' }}>
                   <div 
-                    className="rounded-full overflow-hidden border-2 flex-shrink-0"
+                    className="rounded-full overflow-hidden border-2 shrink-0"
                     style={{ 
                       width: '56px', 
                       height: '56px',
@@ -75,7 +75,7 @@ export const Testimonials = () => {
                     </div>
                   </div>
                   <Quote 
-                    className="flex-shrink-0" 
+                    className="shrink-0" 
                     style={{ width: '32px', height: '32px', color: 'rgba(109, 40, 217, 0.3)' }}
                   />
                 </div>

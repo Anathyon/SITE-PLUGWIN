@@ -20,6 +20,22 @@ export interface Project {
   image: string;
   link: string;
   features?: string[];
+  heroCards?: {
+    icon: string;
+    title: string;
+    description: string;
+  }[];
+  detailedFeatures?: {
+    title: string;
+    description: string;
+    checkList?: string[];
+    image?: string;
+  }[];
+  structuredBenefits?: {
+    icon: string;
+    title: string;
+    description: string;
+  }[];
 }
 
 export interface Service {
