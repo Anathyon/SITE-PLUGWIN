@@ -66,15 +66,15 @@ function App() {
         <Route path="/project/portal-legislativo" element={<PortalLegislativo />} />
         <Route path="/project/panorama-broadcast" element={<PanoramaBroadcast />} />
         <Route path="/project/pwork" element={<PWork />} />
-        <Route path="/project/diario-oficial" element={<DiarioOficial />} />
+        <Route path="/project/diario" element={<DiarioOficial />} />
         <Route path="/project/pwged" element={<PWGED />} />
-        <Route path="/project/webmail-corporativo" element={<WebmailCorporativo />} />
-        <Route path="/project/e-sic" element={<ESIC />} />
-        <Route path="/project/portal-corporativo" element={<PortalCorporativo />} />
+        <Route path="/project/email" element={<WebmailCorporativo />} />
+        <Route path="/project/esic" element={<ESIC />} />
+        <Route path="/project/corporativo" element={<PortalCorporativo />} />
         <Route path="/project/ouvidoria" element={<Ouvidoria />} />
-        <Route path="/project/institucional-legislativo" element={<InstitucionalLegislativo />} />
-        <Route path="/project/institucional-executivo" element={<InstitucionalExecutivo />} />
-        <Route path="/project/protocolo-digital" element={<ProtocoloDigital />} />
+        <Route path="/project/instlegis" element={<InstitucionalLegislativo />} />
+        <Route path="/project/instexec" element={<InstitucionalExecutivo />} />
+        <Route path="/project/protocolo" element={<ProtocoloDigital />} />
         
         {/* Rota de posts do blog */}
         <Route path="/blog/:id" element={<BlogPost />} />
