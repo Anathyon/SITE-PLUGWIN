@@ -106,8 +106,8 @@ export const Navbar = () => {
           {/* Products Dropdown */}
           <div className="relative group">
             <button 
-              className={cn("flex items-center text-gray-300 hover:text-white transition-colors text-sm font-medium bg-transparent border-none cursor-pointer")}
-              style={{ padding: '8px 0', gap: '4px' }}
+              className={cn("flex items-center text-gray-300 hover:text-white transition-colors font-medium bg-transparent border-none cursor-pointer")}
+              style={{ padding: '8px 0', gap: '4px', fontSize: '16.1px' }}
               onMouseEnter={() => setIsProductMenuOpen(true)}
               onClick={() => setIsProductMenuOpen(!isProductMenuOpen)}
             >

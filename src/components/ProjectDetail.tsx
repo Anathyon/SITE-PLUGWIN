@@ -75,6 +75,13 @@ export const ProjectDetail: React.FC<ProjectDetailProps> = ({ slug: propSlug }) 
           <div className="grid grid-cols-1 lg:grid-cols-2 items-center" style={{ gap: '48px', marginBottom: '80px' }}>
             {/* Hero Text */}
             <FadeIn direction="right">
+              {project.logo && (
+                <img 
+                  src={project.logo} 
+                  alt={`${project.title} Logo`} 
+                  className="h-16 w-auto mb-6 object-contain"
+                />
+              )}
               <span className="inline-block bg-accent/20 text-accent rounded-full text-sm font-bold border border-accent/20 tracking-wide uppercase" style={{ padding: '6px 16px', marginBottom: '24px' }}>
                 {project.category}
               </span>

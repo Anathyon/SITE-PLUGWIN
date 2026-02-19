@@ -41,6 +41,7 @@ export interface Project {
   heroCards?: { icon: string; title: string; description: string }[];
   detailedFeatures?: { title: string; description: string; image: string; checkList: string[] }[];
   structuredBenefits?: { icon: string; title: string; description: string }[];
+  logo?: string;
 }
 
 export const blogPosts = [
@@ -113,22 +114,22 @@ Em resumo, ter um site é uma forma eficaz de aumentar a visibilidade, a credibi
 export const testimonials = [
   {
     name: "Camara de Meruoca",
-    image: "https://site.plugwin.net/assets/img/testimonials/meruoca.png",
+    image: "/assets/icons/meruoca.png",
     text: "A qualidade e a dedicação da equipe foram excepcionais, entregando um serviço que superou todas as minhas expectativas. O sistema desenvolvido ficou intuitivo, moderno e com excelente desempenho. Sem dúvida, recomendo a Plugwin Sistemas para quem busca profissionalismo e inovação."
   },
   {
     name: "Panorama Broadcast",
-    image: "https://site.plugwin.net/assets/img/testimonials/panorama_escale.jpg",
+    image: "/assets/icons/panorama_escale.jpg",
     text: "A equipe demonstrou profissionalismo e dedicação em cada etapa do projeto, entregando um sistema eficiente e intuitivo. A qualidade do design e a usabilidade superaram minhas expectativas, tornando a experiência ainda melhor. Recomendo fortemente!"
   },
   {
     name: "Studio Tassia Mendes",
-    image: "https://site.plugwin.net/assets/img/testimonials/tassia.png",
+    image: "/assets/icons/tassia.png",
     text: "Tive uma excelente experiência com a Plugwin Sistemas. A equipe entregou um trabalho de alto nível, com um site ágil, intuitivo e totalmente alinhado às minhas expectativas. Além disso, o suporte sempre foi rápido e eficiente, demonstrando comprometimento e seriedade. Sem dúvida, uma empresa que vale a pena confiar!"
   },
   {
     name: "JRC Locações",
-    image: "https://site.plugwin.net/assets/img/testimonials/jrc.png",
+    image: "/assets/icons/jrc.png",
     text: "A Plugwin Sistemas fez um trabalho excepcional! Desde o primeiro contato, a equipe se mostrou extremamente profissional e atenciosa, garantindo que todas as minhas necessidades fossem atendidas. O sistema desenvolvido ficou incrível, com uma interface moderna e fácil de usar. Estou muito satisfeito e recomendo a todos que buscam qualidade e inovação!"
   }
 ];
@@ -140,8 +141,9 @@ export const projects: Project[] = [
     category: "Saúde",
     description: "Sistema integrado de gestão de clínicas, projetado para simplificar e modernizar o atendimento ao Paciente.",
     fullDescription: "PWMed é um sistema integrado de gestão de clínicas, projetado para simplificar e modernizar o atendimento ao Paciente. Visa tornar o cuidado com o paciente mais eficiente e acolhedor, com ferramentas digitais que automatizam processos e uma abordagem centrada no ser humano.",
-    image: "https://site.plugwin.net/assets/pwmed/img/quadro_agenda.jpeg",
+    image: "/assets/pwmed/quadro_agenda.jpeg",
     link: "https://site.plugwin.net/pwmed",
+    logo: "/assets/Logos_projetos/logo_icone.png",
     features: [
       { title: "Atendimento Inteligente e Humanizado", description: "Visa tornar o cuidado com o paciente mais eficiente e acolhedor." },
       { title: "Plataforma Centralizada", description: "Integra agendamentos, prontuários eletrônicos e faturamento." }
@@ -159,14 +161,26 @@ export const projects: Project[] = [
       { 
         title: "Criação de Usuários e Gestão de Acessos", 
         description: "Estrutura de acesso inteligente e personalizada. Cada usuário é cadastrado conforme sua função, com permissões específicas que otimizam o fluxo de trabalho e garantem segurança total da informação.",
-        image: "https://site.plugwin.net/assets/pwmed/img/quadro_agenda.jpeg",
+        image: "/assets/pwmed/criacao_usuarios.jpeg",
         checkList: ["Perfis personalizados", "Controle total de logs", "Segurança avançada"]
       },
       { 
         title: "Cadastro de Pacientes Simplificado", 
         description: "Uma jornada ágil e intuitiva. Do primeiro contato ao histórico completo, tudo na palma da mão. Garantimos praticidade e eficiência em cada etapa do atendimento.",
-        image: "https://site.plugwin.net/assets/pwmed/img/quadro_agenda.jpeg",
+        image: "/assets/pwmed/agen_listagem.jpeg",
         checkList: ["Histórico completo", "Praticidade garantida", "Acesso rápido"]
+      },
+      { 
+        title: "Gestão Financeira Integrada", 
+        description: "Controle completo das finanças da sua clínica com relatórios detalhados, controle de receitas e despesas, e integração com sistemas de pagamento.",
+        image: "/assets/pwmed/financeiro2.png",
+        checkList: ["Relatórios financeiros", "Controle de receitas", "Integração de pagamentos"]
+      },
+      { 
+        title: "Agenda Inteligente", 
+        description: "Visualize e gerencie todos os agendamentos em um painel intuitivo. Otimize o tempo da sua equipe e reduza faltas com lembretes automáticos.",
+        image: "/assets/pwmed/quadro_agenda.jpeg",
+        checkList: ["Painel visual", "Lembretes automáticos", "Otimização de horários"]
       }
     ],
     structuredBenefits: [
@@ -184,7 +198,8 @@ export const projects: Project[] = [
     category: "Legislativo",
     description: "A Solução Completa para Votação Digital, Gestão de Tempo e Chamadas.",
     fullDescription: "O PWLeg é um sistema que vai agilizar o trabalho parlamentar, otimizando o processo legislativo de votação e discussão das matérias.",
-    image: "https://site.plugwin.net/assets/img/legislativo/votacao_painel.png",
+    image: "/assets/pwleg/gestao_eficiente1.png",
+    logo: "/assets/Logos_projetos/logopwlegini.png",
     link: "https://site.plugwin.net/pwleg",
     features: [],
     benefits: [],
@@ -198,14 +213,26 @@ export const projects: Project[] = [
       {
         title: "Gestão Completa do Processo Legislativo",
         description: "Organiza, monitora e agiliza todas as etapas relacionadas à criação e tramitação de propostas, garantindo transparência e eficiência.",
-        image: "https://site.plugwin.net/assets/img/legislativo/votacao_painel.png",
+        image: "/assets/pwleg/gestao_eficiente1.png",
         checkList: ["Tramitação digital", "Transparência total", "Histórico de votações"]
       },
       {
-        title: "Painel de Votação em Tempo Real",
-        description: "Acompanhe em tempo real os desdobramentos de uma votação diretamente no painel, com resultados instantâneos e precisos.",
-        image: "https://site.plugwin.net/assets/img/legislativo/votacao_painel.png",
-        checkList: ["Resultados instantâneos", "Visualização clara", "Auditoria simplificada"]
+        title: "Controle de Tempo e Tribuna",
+        description: "Sistema avançado de controle de tempo para discursos e debates, com cronometragem precisa e alertas automáticos.",
+        image: "/assets/pwleg/controle_tempo22.png",
+        checkList: ["Cronometragem precisa", "Alertas automáticos", "Gestão de tribuna"]
+      },
+      {
+        title: "Registro de Presenças",
+        description: "Monitora e registra a participação dos parlamentares em sessões, garantindo transparência e controle de quorum.",
+        image: "/assets/pwleg/presencas1.png",
+        checkList: ["Controle de quorum", "Registro automático", "Relatórios de presença"]
+      },
+      {
+        title: "Atas Automatizadas",
+        description: "Geração automática de atas com todos os registros da sessão, incluindo votações, presenças e deliberações.",
+        image: "/assets/pwleg/atas1.png",
+        checkList: ["Geração automática", "Registro completo", "Exportação em PDF"]
       }
     ],
     structuredBenefits: [
@@ -223,6 +250,7 @@ export const projects: Project[] = [
     fullDescription: "O PWEdu é uma plataforma que otimiza a Gestão Escolar através da análise inteligente de dados. Oferece gestão eficiente de servidores, gestão de documentos e arquivos.",
     image: "https://site.plugwin.net/assets/img/censovdc.png",
     link: "https://site.plugwin.net/pwedu",
+    logo: "/assets/Logos_projetos/logo_p.png",
     features: [],
     benefits: [],
     heroCards: [
@@ -235,14 +263,20 @@ export const projects: Project[] = [
       {
         title: "Integração com Educacenso/INEP",
         description: "Importação e exportação automatizadas dos dados do censo escolar, garantindo conformidade e agilidade nos processos administrativos.",
-        image: "https://site.plugwin.net/assets/img/censovdc.png",
+        image: "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=1200&h=800&fit=crop",
         checkList: ["Automação de dados", "Conformidade legal", "Redução de erros"]
       },
       {
         title: "Avaliação Adaptativa",
         description: "Sistema de avaliação e relatórios personalizados com opções de notas numéricas ou conceitos, adaptando-se à metodologia da escola.",
-        image: "https://site.plugwin.net/assets/img/censovdc.png",
+        image: "https://images.unsplash.com/photo-1427504494785-3a9ca7044f45?w=1200&h=800&fit=crop",
         checkList: ["Relatórios personalizados", "Flexibilidade avaliativa", "Acompanhamento pedagógico"]
+      },
+      {
+        title: "Gestão de Servidores",
+        description: "Controle completo de alocações, afastamentos e histórico funcional dos servidores da instituição educacional.",
+        image: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=1200&h=800&fit=crop",
+        checkList: ["Controle de alocações", "Histórico funcional", "Gestão de afastamentos"]
       }
     ],
     structuredBenefits: [
@@ -259,6 +293,7 @@ export const projects: Project[] = [
     description: "Ferramenta para a gestão de tarefas e processos internos de uma organização.",
     fullDescription: "Ferramenta para a gestão de tarefas e processos internos de uma organização. Ele ajuda a coordenar atividades, atribuir responsabilidades e monitorar o andamento.",
     image: "https://site.plugwin.net/assets/pwork/img/mulher_home.jpg",
+    logo: "/assets/Logos_projetos/pwork.png",
     link: "https://site.plugwin.net/pwork",
     features: [],
     benefits: [],
@@ -272,14 +307,20 @@ export const projects: Project[] = [
       {
         title: "Gestão Centralizada de Processos",
         description: "Priorização de tarefas, monitoramento de prazos e recursos em um único lugar, garantindo que nada se perca no dia a dia.",
-        image: "https://site.plugwin.net/assets/pwork/img/mulher_home.jpg",
+        image: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=1200&h=800&fit=crop",
         checkList: ["Monitoramento de prazos", "Priorização clara", "Recursos otimizados"]
       },
       {
         title: "Plataforma Organizacional",
         description: "Centraliza informações e facilita a comunicação entre equipes, promovendo um ambiente de trabalho mais colaborativo e eficiente.",
-        image: "https://site.plugwin.net/assets/pwork/img/mulher_home.jpg",
+        image: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1200&h=800&fit=crop",
         checkList: ["Comunicação fluida", "Informação acessível", "Colaboração real"]
+      },
+      {
+        title: "Delegação Inteligente",
+        description: "Atribua tarefas às pessoas mais qualificadas e acompanhe o progresso em tempo real com dashboards intuitivos.",
+        image: "https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?w=1200&h=800&fit=crop",
+        checkList: ["Atribuição eficiente", "Acompanhamento real-time", "Dashboards visuais"]
       }
     ],
     structuredBenefits: [
@@ -296,6 +337,7 @@ export const projects: Project[] = [
     description: "Plataforma oficial para a publicação de atos administrativos e normativos.",
     fullDescription: "Plataforma oficial para a publicação de atos administrativos e normativos de instituições públicas, incluindo leis, decretos, portarias e outros documentos.",
     image: "https://site.plugwin.net/assets/diario/img/diario.jpg",
+    logo: "/assets/Logos_projetos/diario_oficial.png",
     link: "https://site.plugwin.net/diario",
     features: [],
     benefits: [],
@@ -309,14 +351,20 @@ export const projects: Project[] = [
       {
         title: "Portal de Divulgação Oficial",
         description: "Espaço centralizado e acessível para a publicação de atos legais, garantindo que a informação chegue a quem precisa com total validade jurídica.",
-        image: "https://site.plugwin.net/assets/diario/img/diario.jpg",
+        image: "https://images.unsplash.com/photo-1504711434969-e33886168f5c?w=1200&h=800&fit=crop",
         checkList: ["Validade jurídica", "Acesso público", "Centralização"]
       },
       {
         title: "Acesso Digital e Seguro",
         description: "Consulta rápida e segura a leis, decretos e outros documentos oficiais, promovendo a transparência e o acesso à informação.",
-        image: "https://site.plugwin.net/assets/diario/img/diario.jpg",
+        image: "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=1200&h=800&fit=crop",
         checkList: ["Busca rápida", "Segurança de dados", "Transparência total"]
+      },
+      {
+        title: "Histórico de Publicações",
+        description: "Mantenha um arquivo completo e organizado de todas as publicações anteriores, facilitando consultas e pesquisas históricas.",
+        image: "https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=1200&h=800&fit=crop",
+        checkList: ["Arquivo completo", "Pesquisa avançada", "Organização cronológica"]
       }
     ],
     structuredBenefits: [
@@ -333,6 +381,7 @@ export const projects: Project[] = [
     description: "Solução eficiente para a Gestão de Documentos e informações.",
     fullDescription: "Uma solução eficiente para a Gestão de Documentos e informações dentro de uma organização. Permite o armazenamento, organização e controle de documentos.",
     image: "https://site.plugwin.net/assets/pwged/img/pw_ged_gestao.jpg",
+    logo: "/assets/Logos_projetos/gestao_eletronica.png",
     link: "https://site.plugwin.net/pwged",
     features: [],
     benefits: [],
@@ -346,14 +395,20 @@ export const projects: Project[] = [
       {
         title: "Armazenamento Inteligente",
         description: "Utiliza tecnologia para organizar e classificar informações rapidamente, facilitando a recuperação de documentos importantes quando você mais precisa.",
-        image: "https://site.plugwin.net/assets/pwged/img/pw_ged_gestao.jpg",
+        image: "https://images.unsplash.com/photo-1544396821-4dd40b938ad3?w=1200&h=800&fit=crop",
         checkList: ["Classificação automática", "Recuperação rápida", "Organização lógica"]
       },
       {
         title: "Controle de Versões e Acesso",
         description: "Garante que as versões mais recentes sejam facilmente acessíveis e que apenas pessoas autorizadas tenham acesso a informações sensíveis.",
-        image: "https://site.plugwin.net/assets/pwged/img/pw_ged_gestao.jpg",
+        image: "https://images.unsplash.com/photo-1563986768609-322da13575f3?w=1200&h=800&fit=crop",
         checkList: ["Versionamento", "Controle de permissões", "Auditoria de acesso"]
+      },
+      {
+        title: "Busca Avançada",
+        description: "Encontre documentos rapidamente com filtros inteligentes por data, tipo, autor e conteúdo, economizando tempo e aumentando a produtividade.",
+        image: "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?w=1200&h=800&fit=crop",
+        checkList: ["Filtros inteligentes", "Busca por conteúdo", "Resultados instantâneos"]
       }
     ],
     structuredBenefits: [
@@ -370,6 +425,7 @@ export const projects: Project[] = [
     description: "Contas de e-mail fornecidas a membros de uma organização para comunicação oficial e profissional.",
     fullDescription: "Os e-mails institucionais são contas de e-mail fornecidas a membros de uma organização, como funcionários e departamentos, para comunicação oficial e profissional. Eles oferecem maior credibilidade, segurança e formalidade.",
     image: "https://site.plugwin.net/assets/email/img/email.jpg",
+    logo: "/assets/Logos_projetos/email.png",
     link: "https://site.plugwin.net/email",
     features: [],
     benefits: [],
@@ -383,14 +439,20 @@ export const projects: Project[] = [
       {
         title: "Comunicação Oficial e Segura",
         description: "Garanta que as mensagens sejam claras, rastreáveis e alinhadas com a identidade da empresa, facilitando a comunicação interna e externa com total segurança.",
-        image: "https://site.plugwin.net/assets/email/img/email.jpg",
+        image: "https://images.unsplash.com/photo-1557200134-90327ee9fafa?w=1200&h=800&fit=crop",
         checkList: ["Rastreabilidade", "Identidade corporativa", "Segurança avançada"]
       },
       {
         title: "Gestão Eficiente de Informações",
         description: "Melhore a gestão de informações e aumente a eficiência na troca de dados entre equipes e com clientes, mantendo tudo organizado e acessível.",
-        image: "https://site.plugwin.net/assets/email/img/email.jpg",
+        image: "https://images.unsplash.com/photo-1596526131083-e8c633c948d2?w=1200&h=800&fit=crop",
         checkList: ["Organização de dados", "Troca eficiente", "Acesso controlado"]
+      },
+      {
+        title: "Proteção Contra Ameaças",
+        description: "Sistema robusto de segurança com filtros anti-spam, proteção contra phishing e backup automático de mensagens.",
+        image: "https://images.unsplash.com/photo-1555949963-aa79dcee981c?w=1200&h=800&fit=crop",
+        checkList: ["Anti-spam", "Anti-phishing", "Backup automático"]
       }
     ],
     structuredBenefits: [
@@ -407,6 +469,7 @@ export const projects: Project[] = [
     description: "Sistema Eletrônico do Serviço de Informação ao Cidadão.",
     fullDescription: "Plataforma eletrônica que possibilita aos cidadãos solicitarem informações públicas diretamente a órgãos e entidades governamentais. Integrada à Lei de Acesso à Informação, assegura transparência e facilita o acesso a documentos.",
     image: "https://site.plugwin.net/assets/esic/img/homes_home.jpg",
+    logo: "/assets/Logos_projetos/e-sic.png",
     link: "https://site.plugwin.net/esic",
     features: [],
     benefits: [],
@@ -420,14 +483,20 @@ export const projects: Project[] = [
       {
         title: "Solicitação de Informações Simplificada",
         description: "Permite que os cidadãos solicitem de forma simples e rápida informações públicas diretamente aos órgãos governamentais, garantindo um processo transparente e eficiente.",
-        image: "https://site.plugwin.net/assets/esic/img/homes_home.jpg",
+        image: "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=1200&h=800&fit=crop",
         checkList: ["Processo simples", "Rapidez no pedido", "Eficiência garantida"]
       },
       {
         title: "Acompanhamento de Pedidos",
         description: "O sistema permite acompanhar o status das solicitações, assegurando que o cidadão tenha resposta dentro dos prazos legais e com a devida clareza.",
-        image: "https://site.plugwin.net/assets/esic/img/homes_home.jpg",
+        image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&h=800&fit=crop",
         checkList: ["Status em tempo real", "Cumprimento de prazos", "Clareza na resposta"]
+      },
+      {
+        title: "Portal de Transparência",
+        description: "Acesso facilitado a informações públicas, promovendo a participação cidadã e o controle social das ações governamentais.",
+        image: "https://images.unsplash.com/photo-1521737711867-e3b97375f902?w=1200&h=800&fit=crop",
+        checkList: ["Acesso facilitado", "Participação cidadã", "Controle social"]
       }
     ],
     structuredBenefits: [
@@ -444,6 +513,7 @@ export const projects: Project[] = [
     description: "Vitrine digital para empresas e organizações privadas.",
     fullDescription: "Destinado a empresas e organizações privadas, o site institucional funciona como uma vitrine digital, apresentando informações institucionais, produtos, serviços, missão, visão e valores da empresa.",
     image: "https://site.plugwin.net/assets/corporativo/img/panorama_site.png",
+    logo: "/assets/Logos_projetos/site_corporativo.png",
     link: "https://site.plugwin.net/corporativo",
     features: [],
     benefits: [],
@@ -457,14 +527,20 @@ export const projects: Project[] = [
       {
         title: "Apresentação de Produtos e Serviços",
         description: "Organize e apresente seus produtos e serviços de forma atrativa e acessível, facilitando para o cliente encontrar o que precisa e entender o valor da sua oferta.",
-        image: "https://site.plugwin.net/assets/corporativo/img/panorama_site.png",
+        image: "https://images.unsplash.com/photo-1556761175-b413da4baf72?w=1200&h=800&fit=crop",
         checkList: ["Organização clara", "Design atrativo", "Foco no valor"]
       },
       {
         title: "Canal de Comunicação Eficiente",
         description: "Estabeleça um canal direto com seus clientes através de formulários de contato, integração com redes sociais e informações claras de atendimento.",
-        image: "https://site.plugwin.net/assets/corporativo/img/panorama_site.png",
+        image: "https://images.unsplash.com/photo-1423666639041-f56000c27a9a?w=1200&h=800&fit=crop",
         checkList: ["Contato direto", "Integração social", "Atendimento claro"]
+      },
+      {
+        title: "Identidade Visual Corporativa",
+        description: "Reflita a identidade e valores da sua empresa com um design profissional que transmite credibilidade e fortalece sua marca no mercado.",
+        image: "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=1200&h=800&fit=crop",
+        checkList: ["Design profissional", "Credibilidade", "Fortalecimento da marca"]
       }
     ],
     structuredBenefits: [
@@ -481,6 +557,7 @@ export const projects: Project[] = [
     description: "Sistema completo para receber, analisar e encaminhar demandas da população.",
     fullDescription: "O Sistema de Ouvidoria é uma ferramenta completa para receber, analisar e encaminhar demandas da população, como denúncias, reclamações, elogios e sugestões. Garante transparência e agilidade no tratamento das manifestações.",
     image: "https://site.plugwin.net/assets/ouvidoria/img/mulher_home.jpg",
+    logo: "/assets/Logos_projetos/ouvidoria.png",
     link: "https://site.plugwin.net/ouvidoria",
     features: [],
     benefits: [],
@@ -494,14 +571,20 @@ export const projects: Project[] = [
       {
         title: "Gestão Completa de Manifestações",
         description: "Gerencie todas as demandas em um só lugar, classificando por tipo (denúncia, elogio, reclamação) e encaminhando para os setores responsáveis com total rastreabilidade.",
-        image: "https://site.plugwin.net/assets/ouvidoria/img/mulher_home.jpg",
+        image: "https://images.unsplash.com/photo-1552664730-d307ca884978?w=1200&h=800&fit=crop",
         checkList: ["Classificação automática", "Encaminhamento ágil", "Rastreabilidade total"]
       },
       {
         title: "Acompanhamento pelo Cidadão",
         description: "Permite que o cidadão acompanhe o status da sua manifestação através de um número de protocolo, garantindo transparência e confiança no processo.",
-        image: "https://site.plugwin.net/assets/ouvidoria/img/mulher_home.jpg",
+        image: "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?w=1200&h=800&fit=crop",
         checkList: ["Protocolo único", "Consulta online", "Feedback claro"]
+      },
+      {
+        title: "Relatórios e Estatísticas",
+        description: "Gere relatórios detalhados sobre as manifestações recebidas, identificando padrões e oportunidades de melhoria na gestão pública.",
+        image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200&h=800&fit=crop",
+        checkList: ["Relatórios detalhados", "Identificação de padrões", "Melhoria contínua"]
       }
     ],
     structuredBenefits: [
@@ -518,6 +601,7 @@ export const projects: Project[] = [
     description: "Solução completa para a divulgação de informações legislativas.",
     fullDescription: "Desenvolvido especialmente para câmaras municipais e demais órgãos do Poder Legislativo, o sistema oferece uma solução completa para a divulgação de informações legislativas e a promoção da transparência pública.",
     image: "https://site.plugwin.net/assets/instlegis/img/vereadores.png",
+    logo: "/assets/Logos_projetos/site_ins_leg.png",
     link: "https://site.plugwin.net/instlegis",
     features: [],
     benefits: [],
@@ -531,14 +615,20 @@ export const projects: Project[] = [
       {
         title: "Gestão de Sessões e Pautas",
         description: "Acompanhamento detalhado das sessões plenárias, pautas de votação e atas, permitindo que a população fique por dentro das decisões legislativas.",
-        image: "https://site.plugwin.net/assets/instlegis/img/vereadores.png",
+        image: "https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=1200&h=800&fit=crop",
         checkList: ["Pautas online", "Atas disponíveis", "Histórico de sessões"]
       },
       {
         title: "Perfil dos Parlamentares",
         description: "Área dedicada para apresentar os vereadores, suas biografias, projetos apresentados e contatos, aproximando o legislativo da comunidade.",
-        image: "https://site.plugwin.net/assets/instlegis/img/vereadores.png",
+        image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=1200&h=800&fit=crop",
         checkList: ["Biografia completa", "Projetos do autor", "Canais de contato"]
+      },
+      {
+        title: "Legislação Municipal",
+        description: "Repositório completo de leis, decretos e projetos municipais, com busca avançada e acesso facilitado para toda a população.",
+        image: "https://images.unsplash.com/photo-1589829085413-56de8ae18c73?w=1200&h=800&fit=crop",
+        checkList: ["Repositório completo", "Busca avançada", "Acesso facilitado"]
       }
     ],
     structuredBenefits: [
@@ -555,6 +645,7 @@ export const projects: Project[] = [
     description: "Projetado para instituições do Poder Executivo, como prefeituras e governos.",
     fullDescription: "Projetado para instituições do Poder Executivo, como prefeituras, governos e secretarias, o sistema fornece uma integração eficiente e otimizada com o Portal Executivo PW.",
     image: "https://site.plugwin.net/assets/instexec/img/mulher_home.jpg",
+    logo: "/assets/Logos_projetos/site_ins_executivo.png",
     link: "https://site.plugwin.net/instexec",
     features: [],
     benefits: [],
@@ -568,14 +659,20 @@ export const projects: Project[] = [
       {
         title: "Portal da Transparência Integrado",
         description: "Disponibilize contas públicas, licitações, contratos e despesas de forma clara e organizada, cumprindo as exigências legais de transparência.",
-        image: "https://site.plugwin.net/assets/instexec/img/mulher_home.jpg",
+        image: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=1200&h=800&fit=crop",
         checkList: ["Contas públicas", "Licitações em tempo real", "Conformidade legal"]
       },
       {
         title: "Serviços ao Cidadão",
         description: "Centralize os serviços oferecidos pela prefeitura ou secretaria em um portal digital, facilitando o acesso e reduzindo filas no atendimento presencial.",
-        image: "https://site.plugwin.net/assets/instexec/img/mulher_home.jpg",
+        image: "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=1200&h=800&fit=crop",
         checkList: ["Carta de serviços", "Atendimento digital", "Facilidade de acesso"]
+      },
+      {
+        title: "Notícias e Comunicação",
+        description: "Mantenha a população informada sobre ações, projetos e eventos da administração pública com um sistema de notícias integrado.",
+        image: "https://images.unsplash.com/photo-1504711434969-e33886168f5c?w=1200&h=800&fit=crop",
+        checkList: ["Sistema de notícias", "Agenda de eventos", "Comunicação eficiente"]
       }
     ],
     structuredBenefits: [
@@ -592,6 +689,7 @@ export const projects: Project[] = [
     description: "Gerencia o registro e o acompanhamento de documentos e processos.",
     fullDescription: "Gerencia o registro e o acompanhamento de documentos e processos dentro de uma instituição. Sempre que um cidadão ou empresa realiza um pedido ou encaminha documentos, é gerado um protocolo para monitorar a tramitação.",
     image: "https://site.plugwin.net/assets/protocolo/img/sistema_de_protocolo.png",
+    logo: "/assets/Logos_projetos/sistema_de_protocolo.png",
     link: "https://site.plugwin.net/protocolo",
     features: [],
     benefits: [],
@@ -605,14 +703,20 @@ export const projects: Project[] = [
       {
         title: "Tramitação Digital de Processos",
         description: "Elimine o papel e ganhe agilidade com a tramitação 100% digital. Encaminhe processos entre setores com um clique e mantenha o histórico completo.",
-        image: "https://site.plugwin.net/assets/protocolo/img/sistema_de_protocolo.png",
+        image: "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=1200&h=800&fit=crop",
         checkList: ["Zero papel", "Histórico completo", "Encaminhamento rápido"]
       },
       {
         title: "Controle de Prazos e Pendências",
         description: "O sistema alerta sobre prazos vencendo e pendências em aberto, garantindo que nenhum processo fique parado e que o atendimento ao cidadão seja ágil.",
-        image: "https://site.plugwin.net/assets/protocolo/img/sistema_de_protocolo.png",
+        image: "https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?w=1200&h=800&fit=crop",
         checkList: ["Alertas automáticos", "Gestão de pendências", "Cumprimento de prazos"]
+      },
+      {
+        title: "Protocolo Digital",
+        description: "Geração automática de números de protocolo com QR Code, permitindo rastreamento fácil e consulta online do andamento dos processos.",
+        image: "https://images.unsplash.com/photo-1586281380349-632531db7ed4?w=1200&h=800&fit=crop",
+        checkList: ["QR Code integrado", "Consulta online", "Rastreamento fácil"]
       }
     ],
     structuredBenefits: [
