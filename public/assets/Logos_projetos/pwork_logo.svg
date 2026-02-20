@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 450 140" width="450" height="140">
+  <defs>
+    <!-- Background Gradient for Box -->
+    <linearGradient id="boxGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#4c1d95" />
+      <stop offset="100%" stop-color="#5b21b6" />
+    </linearGradient>
+    
+    <!-- Shadow for Box -->
+    <filter id="shadow" x="-5%" y="-5%" width="120%" height="130%">
+      <feDropShadow dx="0" dy="4" stdDeviation="4" flood-color="#000" flood-opacity="0.2"/>
+    </filter>
+
+    <!-- Colors and Accents -->
+    <linearGradient id="textGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#a78bfa" />
+      <stop offset="100%" stop-color="#8b5cf6" />
+    </linearGradient>
+  </defs>
+
+  <g transform="translate(15, 20)">
+    <!-- "pw" part with lettermark styling -->
+    <text x="0" y="80" font-family="'Inter', -apple-system, sans-serif" font-weight="900" font-size="95" fill="url(#textGrad)" letter-spacing="-6">pw</text>
+
+    <!-- "WORK" in a stylish Box -->
+    <g transform="translate(145, 12)">
+      <rect x="0" y="0" width="260" height="75" rx="16" fill="url(#boxGrad)" filter="url(#shadow)" />
+      
+      <!-- Network / Dots Decoration inside the box to match the "examples" vibe -->
+      <circle cx="20" cy="20" r="4" fill="#a78bfa" opacity="0.6" />
+      <circle cx="240" cy="55" r="5" fill="#f59e0b" opacity="0.8" />
+      <circle cx="30" cy="60" r="3" fill="#3b82f6" opacity="0.8" />
+      
+      <!-- "WORK" text -->
+      <text x="130" y="54" font-family="'Inter', -apple-system, sans-serif" font-weight="900" font-size="52" fill="#ffffff" text-anchor="middle" letter-spacing="3">WORK</text>
+    </g>
+  </g>
+</svg>

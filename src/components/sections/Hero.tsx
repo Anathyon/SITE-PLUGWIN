@@ -1,6 +1,4 @@
 import { motion } from 'framer-motion';
-import { Blob } from '../ui/Blob';
-import { FloatingOrbs } from '../ui/FloatingOrbs';
 import { ArrowRight } from 'lucide-react';
 import { cn } from '../../utils/cn';
 
@@ -16,19 +14,6 @@ export const Hero = () => {
         justifyContent: 'center'
       }}
     >
-      {/* Background Blobs */}
-      <div 
-        className="absolute pointer-events-none"
-        style={{
-          inset: 0,
-          overflow: 'hidden'
-        }}
-      >
-        <Blob className="bg-primary/30" style={{ position: 'absolute', top: 0, left: 0, width: '384px', height: '384px' }} />
-        <Blob className="bg-accent/30" delay={2} style={{ position: 'absolute', bottom: 0, right: 0, width: '384px', height: '384px' }} />
-        <Blob className="bg-purple-500/20" delay={4} style={{ position: 'absolute', top: '50%', left: '50%', width: '256px', height: '256px' }} />
-        <FloatingOrbs />
-      </div>
 
       <div 
         className={cn("relative z-10 w-full")} 

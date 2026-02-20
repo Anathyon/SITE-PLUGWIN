@@ -13,6 +13,8 @@ import { Services } from './components/sections/Services';
 import { Projects } from './components/sections/Projects';
 import { BlogSection } from './components/sections/BlogSection';
 import { Notification } from './components/ui/Notification';
+import { Blob } from './components/ui/Blob';
+import { FloatingOrbs } from './components/ui/FloatingOrbs';
 import { BlogPost } from './components/pages/BlogPost';
 import { Testimonials } from './components/sections/Testimonials';
 import { Contact } from './components/sections/Contact';
@@ -42,9 +44,18 @@ function App() {
       
       {/* Notificação LGPD */}
       <Notification />
+
+      {/* Global Background Animation */}
+      <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden">
+        <Blob className="bg-primary/30" style={{ position: 'absolute', top: 0, left: 0, width: '384px', height: '384px' }} />
+        <Blob className="bg-accent/30" delay={2} style={{ position: 'absolute', bottom: 0, right: 0, width: '384px', height: '384px' }} />
+        <Blob className="bg-purple-500/20" delay={4} style={{ position: 'absolute', top: '50%', left: '50%', width: '256px', height: '256px' }} />
+        <FloatingOrbs />
+      </div>
       
       {/* Sistema de rotas */}
-      <Routes>
+      <div className="relative z-10">
+        <Routes>
         {/* Página inicial com todas as seções */}
         <Route path="/" element={
           <>
@@ -79,6 +90,7 @@ function App() {
         {/* Rota de posts do blog */}
         <Route path="/blog/:id" element={<BlogPost />} />
       </Routes>
+      </div>
       
       {/* Rodapé */}
       <Footer />

@@ -13,13 +13,13 @@
   </defs>
 
   <g transform="translate(15, 30)">
-    <rect x="0" y="0" width="450" height="85" rx="16" fill="url(#boxGrad)" filter="url(#shadow)" />
+    <rect x="0" y="0" width="340" height="85" rx="16" fill="url(#boxGrad)" filter="url(#shadow)" />
     
     <circle cx="30" cy="25" r="5" fill="#a78bfa" opacity="0.6" />
-    <circle cx="410" cy="65" r="6" fill="#f59e0b" opacity="0.8" />
+    <circle cx="300" cy="65" r="6" fill="#f59e0b" opacity="0.8" />
     <circle cx="45" cy="70" r="4" fill="#3b82f6" opacity="0.8" />
-    <circle cx="420" cy="20" r="3" fill="#a78bfa" opacity="0.5" />
+    <circle cx="310" cy="20" r="3" fill="#a78bfa" opacity="0.5" />
     
-    <text x="225" y="58" font-family="'Inter', -apple-system, sans-serif" font-weight="900" font-size="30" fill="#ffffff" text-anchor="middle" letter-spacing="1">SISTEMA DE PROTOCOLO</text>
+    <text x="170" y="60" font-family="'Inter', -apple-system, sans-serif" font-weight="900" font-size="38" fill="#ffffff" text-anchor="middle" letter-spacing="2">OUVIDORIA</text>
   </g>
 </svg>

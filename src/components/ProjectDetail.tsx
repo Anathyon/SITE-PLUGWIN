@@ -3,8 +3,6 @@ import { useParams, Link } from 'react-router-dom';
 import { projects } from '../data/content';
 import { FadeIn } from './ui/FadeIn';
 import { GlassCard } from './ui/GlassCard';
-import { Blob } from './ui/Blob';
-import { FloatingOrbs } from './ui/FloatingOrbs';
 import { Contact } from './sections/Contact';
 import { 
   ArrowLeft, 
@@ -68,19 +66,8 @@ export const ProjectDetail: React.FC<ProjectDetailProps> = ({ slug: propSlug }) 
     <div className="min-h-screen bg-background" style={{ paddingTop: '96px', paddingBottom: '0', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
       {/* Hero Section */}
       <section className="relative min-h-[90vh] flex flex-col justify-center w-full" style={{ paddingLeft: '24px', paddingRight: '24px', marginBottom: '80px' }}>
-        {/* Background Blobs */}
-        <div 
-          className="absolute pointer-events-none"
-          style={{
-            inset: 0,
-            overflow: 'hidden'
-          }}
-        >
-          <Blob className="bg-primary/30" style={{ position: 'absolute', top: 0, left: 0, width: '384px', height: '384px' }} />
-          <Blob className="bg-accent/30" delay={2} style={{ position: 'absolute', bottom: 0, right: 0, width: '384px', height: '384px' }} />
-          <Blob className="bg-purple-500/20" delay={4} style={{ position: 'absolute', top: '50%', left: '50%', width: '256px', height: '256px' }} />
-          <FloatingOrbs />
-        </div>
+        {/* Background Elements */}
+        <div className="absolute top-0 right-0 w-1/2 h-full bg-to-l from-primary/10 to-transparent pointer-events-none" />
         
         <div className="max-w-7xl w-full relative z-10" style={{ marginLeft: 'auto', marginRight: 'auto' }}>
 
@@ -92,10 +79,10 @@ export const ProjectDetail: React.FC<ProjectDetailProps> = ({ slug: propSlug }) 
                 <img 
                   src={project.logo} 
                   alt={`${project.title} Logo`} 
-                  className="h-16 w-auto mb-6 object-contain"
+                  className="mt-[7%] lg:mt-0 h-16 w-auto mb-6 object-contain"
                 />
               )}
-              <span className="inline-block bg-accent/20 text-accent rounded-full text-sm font-bold border border-accent/20 tracking-wide uppercase" style={{ padding: '6px 16px', marginBottom: '24px' }}>
+              <span className="inline-block bg-accent/20 text-accent rounded-full text-sm font-bold border border-accent/20 tracking-wide uppercase" style={{ padding: '6px 16px', marginBottom: '24px', marginTop: '5%' }}>
                 {project.category}
               </span>
               <h1 className="text-5xl md:text-7xl font-bold text-white leading-tight" style={{ marginBottom: '24px' }}>

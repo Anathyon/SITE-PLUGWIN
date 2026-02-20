@@ -3,8 +3,6 @@ import { blogPosts } from '../../data/content';
 import { FadeIn } from '../ui/FadeIn';
 import { ArrowLeft } from 'lucide-react';
 import { GlassCard } from '../ui/GlassCard';
-import { Blob } from '../ui/Blob';
-import { FloatingOrbs } from '../ui/FloatingOrbs';
 
 export const BlogPost = () => {
   const { id } = useParams();
@@ -22,22 +20,8 @@ export const BlogPost = () => {
   }
 
   return (
-    <div className="relative overflow-hidden pt-32 pb-20 min-h-screen flex items-center justify-center" style={{ paddingTop: '8rem', paddingBottom: '5rem' }}>
-      {/* Background Blobs */}
-      <div 
-        className="absolute pointer-events-none"
-        style={{
-          inset: 0,
-          overflow: 'hidden'
-        }}
-      >
-        <Blob className="bg-primary/30" style={{ position: 'absolute', top: 0, left: 0, width: '384px', height: '384px' }} />
-        <Blob className="bg-accent/30" delay={2} style={{ position: 'absolute', bottom: 0, right: 0, width: '384px', height: '384px' }} />
-        <Blob className="bg-purple-500/20" delay={4} style={{ position: 'absolute', top: '50%', left: '50%', width: '256px', height: '256px' }} />
-        <FloatingOrbs />
-      </div>
-
-      <div className="max-w-4xl mx-auto px-6 relative z-10">
+    <div className="pt-32 pb-20 min-h-screen flex items-center justify-center" style={{ paddingTop: '8rem', paddingBottom: '5rem' }}>
+      <div className="max-w-4xl mx-auto px-6">
         <FadeIn>
           <div className="flex justify-center mb-8">
             <Link to="/" className="inline-flex items-center gap-2 text-gray-400 hover:text-white transition-colors" style={{ marginBottom: '2rem' }}>
