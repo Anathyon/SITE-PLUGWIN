@@ -19,7 +19,9 @@ export interface Project {
   fullDescription?: string;
   image: string;
   link: string;
-  features?: string[];
+  logo?: string;
+  features?: { title: string; description: string }[];
+  benefits?: { title: string; description: string }[];
   heroCards?: {
     icon: string;
     title: string;
