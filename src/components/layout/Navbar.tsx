@@ -12,13 +12,17 @@ export const Navbar = () => {
   const location = useLocation();
   const navigate = useNavigate();
 
+  const [isDesktopView, setIsDesktopView] = useState(window.innerWidth > 820);
+
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20);
     };
 
     const handleResize = () => {
-      if (window.innerWidth >= 768) {
+      const isDesktop = window.innerWidth > 820;
+      setIsDesktopView(isDesktop);
+      if (isDesktop) {
         setIsMobileMenuOpen(false);
       }
     };
@@ -74,7 +78,10 @@ export const Navbar = () => {
         isScrolled ? "bg-[#0f1016]/95 backdrop-blur-md border-b border-white/10" : "bg-transparent"
       )}
       style={{
-        padding: isScrolled ? '12px 24px' : '30px 24px',
+        paddingTop: isScrolled ? '12px' : '30px',
+        paddingBottom: isScrolled ? '12px' : '30px',
+        paddingLeft: '12px',
+        paddingRight: '32px',
         zIndex: 9997
       }}
     >
@@ -99,7 +106,8 @@ export const Navbar = () => {
         </Link>
 
         {/* Desktop Menu */}
-        <div className="hidden md:flex items-center" style={{ 
+        <div className="items-center" style={{ 
+          display: isDesktopView ? 'flex' : 'none',
           gap: '32px',
           marginLeft: 'auto' 
         }}>
@@ -162,18 +170,18 @@ export const Navbar = () => {
 
         {/* Mobile Toggle */}
         <button
-          className="md:hidden text-white bg-transparent border-none cursor-pointer"
+          className="text-white bg-transparent border-none cursor-pointer"
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-          style={{ padding: '4px', marginLeft: 'auto' }}
+          style={{ display: isDesktopView ? 'none' : 'block', padding: '4px', marginLeft: 'auto' }}
         >
           {isMobileMenuOpen ? <X /> : <Menu />}
         </button>
       </div>
 
       {/* Mobile Sidebar Overlay - Backdrop */}
-      {isMobileMenuOpen && (
+      {isMobileMenuOpen && !isDesktopView && (
         <div 
-          className="fixed inset-0 bg-black/70 backdrop-blur-sm md:hidden"
+          className="fixed inset-0 bg-black/70 backdrop-blur-sm"
           style={{ 
             zIndex: 99998,
             position: 'fixed',
@@ -187,9 +195,9 @@ export const Navbar = () => {
       )}
 
       {/* Mobile Sidebar */}
-      {isMobileMenuOpen && (
+      {isMobileMenuOpen && !isDesktopView && (
         <div 
-          className="fixed top-0 right-0 bottom-0 w-[300px] bg-[#0f1016] md:hidden flex flex-col shadow-2xl border-l border-white/10"
+          className="fixed top-0 right-0 bottom-0 w-[300px] bg-[#0f1016] flex flex-col shadow-2xl border-l border-white/10"
           style={{ 
             zIndex: 99999,
             position: 'fixed',

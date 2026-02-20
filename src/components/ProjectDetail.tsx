@@ -79,7 +79,8 @@ export const ProjectDetail: React.FC<ProjectDetailProps> = ({ slug: propSlug }) 
                 <img 
                   src={project.logo} 
                   alt={`${project.title} Logo`} 
-                  className="mt-[7%] lg:mt-0 h-16 w-auto mb-6 object-contain"
+                  className="h-16 w-auto mb-6 object-contain"
+                  style={{ marginTop: '12%' }}
                 />
               )}
               <span className="inline-block bg-accent/20 text-accent rounded-full text-sm font-bold border border-accent/20 tracking-wide uppercase" style={{ padding: '6px 16px', marginBottom: '24px', marginTop: '5%' }}>
