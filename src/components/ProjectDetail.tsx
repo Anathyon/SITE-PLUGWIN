@@ -38,10 +38,21 @@ const IconMap: Record<string, React.ElementType> = {
   CheckSquare, Layers, Eye, Search, Folder, Cloud, Lock
 };
 
+/**
+ * Propriedades para o componente ProjectDetail.
+ */
 interface ProjectDetailProps {
+  /** Slug opcional para identificar o projeto. Se não fornecido, busca dos parâmetros da URL. */
   slug?: string;
 }
 
+/**
+ * Componente detalhado para exibição de informações de um projeto/produto específico.
+ * Renderiza seções de Hero, funcionalidades detalhadas e benefícios com base no slug do projeto.
+ * 
+ * @param {ProjectDetailProps} props As propriedades do componente.
+ * @returns {JSX.Element} O componente ProjectDetail renderizado.
+ */
 export const ProjectDetail: React.FC<ProjectDetailProps> = ({ slug: propSlug }) => {
   const { slug: paramSlug } = useParams();
   const slug = propSlug || paramSlug;

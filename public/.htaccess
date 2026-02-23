@@ -1,161 +1,95 @@
 # ============================================
-# PLUGWIN SISTEMAS - CONFIGURAÇÃO APACHE
+# PLUGWIN SISTEMAS - CONFIGURAÇÃO OTIMIZADA
 # ============================================
 
 # ------------------------------
-# COMPRESSÃO GZIP
+# COMPRESSÃO GZIP (mod_deflate)
 # ------------------------------
 <IfModule mod_deflate.c>
-  # Comprimir HTML, CSS, JavaScript, Text, XML e fontes
-  AddOutputFilterByType DEFLATE application/javascript
-  AddOutputFilterByType DEFLATE application/rss+xml
-  AddOutputFilterByType DEFLATE application/vnd.ms-fontobject
-  AddOutputFilterByType DEFLATE application/x-font
-  AddOutputFilterByType DEFLATE application/x-font-opentype
-  AddOutputFilterByType DEFLATE application/x-font-otf
-  AddOutputFilterByType DEFLATE application/x-font-truetype
-  AddOutputFilterByType DEFLATE application/x-font-ttf
-  AddOutputFilterByType DEFLATE application/x-javascript
-  AddOutputFilterByType DEFLATE application/xhtml+xml
-  AddOutputFilterByType DEFLATE application/xml
-  AddOutputFilterByType DEFLATE font/opentype
-  AddOutputFilterByType DEFLATE font/otf
-  AddOutputFilterByType DEFLATE font/ttf
-  AddOutputFilterByType DEFLATE image/svg+xml
-  AddOutputFilterByType DEFLATE image/x-icon
-  AddOutputFilterByType DEFLATE text/css
-  AddOutputFilterByType DEFLATE text/html
-  AddOutputFilterByType DEFLATE text/javascript
-  AddOutputFilterByType DEFLATE text/plain
-  AddOutputFilterByType DEFLATE text/xml
-
-  # Remover bugs de navegadores antigos
-  BrowserMatch ^Mozilla/4 gzip-only-text/html
-  BrowserMatch ^Mozilla/4\.0[678] no-gzip
-  BrowserMatch \bMSIE !no-gzip !gzip-only-text/html
-  Header append Vary User-Agent
+  AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css text/javascript
+  AddOutputFilterByType DEFLATE application/javascript application/x-javascript application/json
+  AddOutputFilterByType DEFLATE application/xml application/xhtml+xml application/rss+xml
+  AddOutputFilterByType DEFLATE font/opentype font/otf font/ttf image/svg+xml image/x-icon
 </IfModule>
 
 # ------------------------------
-# CACHE DO NAVEGADOR
+# CACHE DO NAVEGADOR (mod_expires)
 # ------------------------------
 <IfModule mod_expires.c>
   ExpiresActive On
+  ExpiresDefault "access plus 1 month"
   
-  # Imagens
+  # Imagens e Vídeos
   ExpiresByType image/jpg "access plus 1 year"
   ExpiresByType image/jpeg "access plus 1 year"
   ExpiresByType image/gif "access plus 1 year"
   ExpiresByType image/png "access plus 1 year"
   ExpiresByType image/svg+xml "access plus 1 year"
   ExpiresByType image/webp "access plus 1 year"
-  ExpiresByType image/x-icon "access plus 1 year"
-  
-  # Vídeo
   ExpiresByType video/mp4 "access plus 1 year"
-  ExpiresByType video/webm "access plus 1 year"
   
   # Fontes
   ExpiresByType font/ttf "access plus 1 year"
-  ExpiresByType font/otf "access plus 1 year"
   ExpiresByType font/woff "access plus 1 year"
   ExpiresByType font/woff2 "access plus 1 year"
-  ExpiresByType application/font-woff "access plus 1 year"
   
-  # CSS e JavaScript
+  # CSS e JS
   ExpiresByType text/css "access plus 1 month"
-  ExpiresByType text/javascript "access plus 1 month"
   ExpiresByType application/javascript "access plus 1 month"
   
-  # HTML
+  # HTML (Nunca cachear para SPA garantir carregamento da última versão)
   ExpiresByType text/html "access plus 0 seconds"
 </IfModule>
 
 # ------------------------------
-# SEGURANÇA
+# SEGURANÇA E HEADERS
 # ------------------------------
-
-# Desabilitar listagem de diretórios
 Options -Indexes
 
-# Proteger arquivos sensíveis
-<FilesMatch "^\.">
-  Order allow,deny
-  Deny from all
-</FilesMatch>
-
-# Proteger arquivos de configuração
-<FilesMatch "\.(htaccess|htpasswd|ini|log|sh|sql|conf|config)$">
-  Order allow,deny
-  Deny from all
-</FilesMatch>
-
-# Prevenir acesso a arquivos de backup
-<FilesMatch "\.(bak|backup|old|orig|save|swp|tmp)$">
-  Order allow,deny
-  Deny from all
-</FilesMatch>
-
-# Headers de segurança
 <IfModule mod_headers.c>
-  # Prevenir clickjacking
-  Header always set X-Frame-Options "SAMEORIGIN"
+  # Proteção Básica
+  Header set X-Frame-Options "SAMEORIGIN"
+  Header set X-Content-Type-Options "nosniff"
+  Header set X-XSS-Protection "1; mode=block"
+  Header set Referrer-Policy "strict-origin-when-cross-origin"
   
-  # Prevenir MIME type sniffing
-  Header always set X-Content-Type-Options "nosniff"
+  # Content Security Policy (Ajustado para React/Vite)
+  Header set Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' https: data: blob:; connect-src 'self' https:;"
   
-  # Habilitar proteção XSS do navegador
-  Header always set X-XSS-Protection "1; mode=block"
-  
-  # Política de referência
-  Header always set Referrer-Policy "strict-origin-when-cross-origin"
-  
-  # Política de permissões
-  Header always set Permissions-Policy "geolocation=(), microphone=(), camera=()"
-  
-  # Content Security Policy (ajuste conforme necessário)
-  Header always set Content-Security-Policy "default-src 'self' 'unsafe-inline' 'unsafe-eval' https: data: blob:;"
-  
-  # Remover informações do servidor
-  Header unset Server
-  Header unset X-Powered-By
+  # Otimização: Remover ETag
+  Header unset ETag
 </IfModule>
 
+FileETag None
+
+# Bloquear arquivos sensíveis
+<FilesMatch "\.(htaccess|htpasswd|ini|log|sh|sql|bak|old|save|swp|tmp)$">
+  Order allow,deny
+  Deny from all
+</FilesMatch>
+
 # ------------------------------
-# REWRITE RULES (SPA)
+# REWRITE RULES (SPA Support)
 # ------------------------------
 <IfModule mod_rewrite.c>
   RewriteEngine On
   RewriteBase /
   
-  # Redirecionar HTTP para HTTPS (descomente se usar SSL)
+  # Redirecionar para HTTPS (opcional - remover comentário se necessário)
   # RewriteCond %{HTTPS} off
   # RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
   
-  # Redirecionar www para não-www (ou vice-versa)
-  # RewriteCond %{HTTP_HOST} ^www\.(.*)$ [NC]
-  # RewriteRule ^(.*)$ https://%1/$1 [R=301,L]
-  
-  # SPA - Redirecionar todas as requisições para index.html
+  # Suporte a SPA (Single Page Application)
   RewriteCond %{REQUEST_FILENAME} !-f
   RewriteCond %{REQUEST_FILENAME} !-d
   RewriteRule . /index.html [L]
 </IfModule>
 
 # ------------------------------
-# OTIMIZAÇÕES ADICIONAIS
+# CONFIGURAÇÕES PHP (Otimização)
 # ------------------------------
-
-# Desabilitar ETags
-<IfModule mod_headers.c>
-  Header unset ETag
+<IfModule mod_php.c>
+  php_value upload_max_filesize 10M
+  php_value post_max_size 10M
+  php_value max_execution_time 300
 </IfModule>
-FileETag None
-
-# Limitar tamanho de upload (ajuste conforme necessário)
-php_value upload_max_filesize 10M
-php_value post_max_size 10M
-
-# Timeout de execução
-php_value max_execution_time 300
-php_value max_input_time 300

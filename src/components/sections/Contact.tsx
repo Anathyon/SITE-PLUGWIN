@@ -4,6 +4,13 @@ import { FadeIn } from '../ui/FadeIn';
 
 import { useContactStore } from '../../store/useContactStore';
 
+/**
+ * Componente de Seção de Contato.
+ * Gerencia o formulário de contato, validação e exibição de informações de endereço/redes sociais.
+ * Utiliza o `useContactStore` para gerenciamento de estado global do formulário.
+ * 
+ * @returns {JSX.Element} O componente Contact renderizado.
+ */
 export const Contact = () => {
   const { 
     formData, 
@@ -15,13 +22,18 @@ export const Contact = () => {
     validate 
   } = useContactStore();
 
+  /**
+   * Lida com o envio do formulário.
+   * Valida os campos antes de processar.
+   * 
+   * @param {React.FormEvent} e Evento de submissão do formulário.
+   */
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
 
     if (validate()) {
-      // Aqui você integraria com seu serviço de email
-      console.log('Form data is valid:', formData);
+      // Integração futura com serviço de email
       alert('Mensagem enviada com sucesso!');
       resetForm();
     }

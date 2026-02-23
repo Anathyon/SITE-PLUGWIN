@@ -4,10 +4,17 @@ import { FadeIn } from '../ui/FadeIn';
 import { ArrowLeft } from 'lucide-react';
 import { GlassCard } from '../ui/GlassCard';
 
+/**
+ * Componente para exibição de uma postagem individual do blog.
+ * Busca o post com base no ID fornecido na URL e renderiza seu conteúdo.
+ * 
+ * @returns {JSX.Element} O componente BlogPost renderizado.
+ */
 export const BlogPost = () => {
   const { id } = useParams();
   const post = blogPosts.find(p => p.id === Number(id));
 
+  // Renderização de estado não encontrado
   if (!post) {
     return (
       <div className="min-h-screen flex items-center justify-center pt-20" style={{ paddingTop: '5rem' }}>
@@ -18,6 +25,24 @@ export const BlogPost = () => {
       </div>
     );
   }
+
+  /**
+   * Renderiza o conteúdo do post, processando negritos e parágrafos.
+   * @param {string} content O conteúdo bruto do post.
+   */
+  const renderContent = (content: string) => {
+    return content.split('\n\n').map((paragraph, index) => (
+      <p key={index} className="text-gray-200 mb-6 leading-relaxed text-center" style={{ marginBottom: '1.5rem' }}>
+        {paragraph.split(/(\*\*.*?\*\*)/g).map((part, i) => {
+          if (part.startsWith('**') && part.endsWith('**')) {
+            const text = part.slice(2, -2);
+            return <strong key={i} className="text-white font-semibold">{text}</strong>;
+          }
+          return part;
+        })}
+      </p>
+    ));
+  };
 
   return (
     <div className="pt-32 pb-20 min-h-screen flex items-center justify-center" style={{ paddingTop: '8rem', paddingBottom: '5rem' }}>
@@ -47,13 +72,7 @@ export const BlogPost = () => {
             
             <div className="p-8 md:p-12" style={{ padding: '2rem' }}>
               <div className="prose prose-invert prose-lg max-w-none mx-auto">
-                {post.content.split('\n\n').map((paragraph, index) => (
-                  <p key={index} className="text-gray-200 mb-6 leading-relaxed text-center" style={{ marginBottom: '1.5rem' }}>
-                    {paragraph.replace(/\*\*(.*?)\*\*/g, (_match, p1) => `<strong>${p1}</strong>`).split(/<strong>(.*?)<\/strong>/g).map((part, i) => 
-                      i % 2 === 1 ? <strong key={i} className="text-white font-semibold">{part}</strong> : part
-                    )}
-                  </p>
-                ))}
+                {renderContent(post.content)}
               </div>
             </div>
           </GlassCard>
