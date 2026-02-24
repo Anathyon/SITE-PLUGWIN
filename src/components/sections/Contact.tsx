@@ -46,11 +46,32 @@ export const Contact = () => {
         return;
       }
       
-      // Integração futura com serviço de email
-      alert('Mensagem enviada com sucesso!');
-      resetForm();
-      setCaptchaToken(null);
-      captchaRef.current?.resetCaptcha();
+      try {
+        const response = await fetch('/api/contact', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            ...formData,
+            'h-captcha-response': captchaToken
+          }),
+        });
+
+        const data = await response.json();
+
+        if (response.ok && data.success) {
+          alert('Mensagem enviada com sucesso!');
+          resetForm();
+          setCaptchaToken(null);
+          captchaRef.current?.resetCaptcha();
+        } else {
+          throw new Error(data.error || 'Erro ao enviar mensagem');
+        }
+      } catch (error: any) {
+        console.error('Submission error:', error);
+        alert(`Falha ao enviar: ${error.message}`);
+      }
     }
     
     setIsSubmitting(false);
