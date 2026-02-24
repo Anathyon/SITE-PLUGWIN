@@ -1,6 +1,8 @@
 import { GlassCard } from '../ui/GlassCard';
 import { Mail, MapPin, Phone, Send } from 'lucide-react';
 import { FadeIn } from '../ui/FadeIn';
+import HCaptcha from '@hcaptcha/react-hcaptcha';
+import { useRef, useState } from 'react';
 
 import { useContactStore } from '../../store/useContactStore';
 
@@ -11,7 +13,12 @@ import { useContactStore } from '../../store/useContactStore';
  * 
  * @returns {JSX.Element} O componente Contact renderizado.
  */
+const HCAPTCHA_SITE_KEY = 'ea6eb0d4-d650-4c6c-a69e-0ec20666961e';
+
 export const Contact = () => {
+  const [captchaToken, setCaptchaToken] = useState<string | null>(null);
+  const captchaRef = useRef<HCaptcha>(null);
+
   const { 
     formData, 
     errors, 
@@ -33,9 +40,17 @@ export const Contact = () => {
     setIsSubmitting(true);
 
     if (validate()) {
+      if (!captchaToken) {
+        alert('Por favor, complete o desafio de segurança (hCaptcha).');
+        setIsSubmitting(false);
+        return;
+      }
+      
       // Integração futura com serviço de email
       alert('Mensagem enviada com sucesso!');
       resetForm();
+      setCaptchaToken(null);
+      captchaRef.current?.resetCaptcha();
     }
     
     setIsSubmitting(false);
@@ -166,6 +181,16 @@ export const Contact = () => {
                   {isSubmitting ? 'Enviando...' : 'Enviar Mensagem'}
                   <Send className="w-4 h-4" />
                 </button>
+
+                <div className="flex justify-center" style={{ marginTop: '1rem' }}>
+                  <HCaptcha
+                    sitekey={HCAPTCHA_SITE_KEY}
+                    onVerify={(token) => setCaptchaToken(token)}
+                    onExpire={() => setCaptchaToken(null)}
+                    ref={captchaRef}
+                    theme="dark"
+                  />
+                </div>
               </form>
             </GlassCard>
           </FadeIn>
