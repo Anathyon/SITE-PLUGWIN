@@ -13,7 +13,7 @@ import { useContactStore } from '../../store/useContactStore';
  * 
  * @returns {JSX.Element} O componente Contact renderizado.
  */
-const HCAPTCHA_SITE_KEY = 'ea6eb0d4-d650-4c6c-a69e-0ec20666961e';
+const HCAPTCHA_SITE_KEY = import.meta.env.VITE_HCAPTCHA_SITEKEY;
 
 export const Contact = () => {
   const [captchaToken, setCaptchaToken] = useState<string | null>(null);
