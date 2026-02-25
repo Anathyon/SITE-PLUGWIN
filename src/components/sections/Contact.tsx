@@ -66,7 +66,10 @@ export const Contact = () => {
           setCaptchaToken(null);
           captchaRef.current?.resetCaptcha();
         } else {
-          throw new Error(data.error || 'Erro ao enviar mensagem');
+          // Capturar detalhes extras para diagnóstico
+          const errorMsg = data.error || 'Erro ao enviar mensagem';
+          const details = data.details ? `\nDetalhes: ${JSON.stringify(data.details)}` : '';
+          throw new Error(`${errorMsg}${details}`);
         }
       } catch (error: any) {
         console.error('Submission error:', error);
