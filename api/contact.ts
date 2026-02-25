@@ -20,28 +20,38 @@ export default async function handler(req: any, res: any) {
   try {
     const captchaSecret = process.env.HCAPTCHA_SECRET;
     if (!captchaSecret) {
-      console.error('HCAPTCHA_SECRET is not defined');
-      // For fallback or during setup, we might want to skip or fail
-      // But for security, we should fail if expected.
+      console.error('CRITICAL: HCAPTCHA_SECRET is not defined in environment variables');
+      return res.status(500).json({ error: 'Configuração do servidor incompleta (Captcha Secret missing)' });
     }
 
-    const verifyUrl = `https://hcaptcha.com/siteverify`;
+    const verifyUrl = 'https://hcaptcha.com/siteverify';
+    const params = new URLSearchParams();
+    params.append('secret', captchaSecret);
+    params.append('response', captchaToken);
     
     const response = await fetch(verifyUrl, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/x-www-form-urlencoded',
       },
-      body: `secret=${captchaSecret}&response=${captchaToken}`,
+      body: params.toString(),
     });
 
-    const captchaData = await response.json() as { success: boolean };
+    const captchaData = await response.json() as { 
+      success: boolean; 
+      'error-codes'?: string[];
+    };
+
     if (!captchaData.success) {
-      return res.status(400).json({ error: 'Captcha validation failed' });
+      console.error('hCaptcha validation failed:', captchaData['error-codes']);
+      return res.status(400).json({ 
+        error: 'Validação do Captcha falhou. Por favor, tente novamente.',
+        details: captchaData['error-codes']
+      });
     }
   } catch (error) {
     console.error('Error verifying hCaptcha:', error);
-    return res.status(500).json({ error: 'Failed to verify captcha' });
+    return res.status(500).json({ error: 'Erro ao verificar o captcha' });
   }
 
   // 2. Configurar o transportador SMTP
