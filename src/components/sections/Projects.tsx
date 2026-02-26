@@ -4,18 +4,12 @@ import { Carousel } from '../ui/Carousel';
 import { projects } from '../../data/content';
 import { Link } from 'react-router-dom';
 import { cn } from '../../utils/cn';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
+import { useMediaQuery } from '../../hooks/useMediaQuery';
 import type { Project } from '../../types/content';
 
 export const Projects = () => {
-  const [isMobile, setIsMobile] = useState(false);
-
-  useEffect(() => {
-    const checkMobile = () => setIsMobile(window.innerWidth < 768);
-    checkMobile();
-    window.addEventListener('resize', checkMobile);
-    return () => window.removeEventListener('resize', checkMobile);
-  }, []);
+  const isMobile = useMediaQuery('(max-width: 767px)');
 
   const ProjectCard = ({ project }: { project: Project }) => (
     <Link 

@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Menu, X, ChevronDown } from 'lucide-react';
 import { cn } from '../../utils/cn';
+import { useMediaQuery } from '../../hooks/useMediaQuery';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { projects } from '../../data/content';
 
@@ -12,29 +13,25 @@ export const Navbar = () => {
   const location = useLocation();
   const navigate = useNavigate();
 
-  const [isDesktopView, setIsDesktopView] = useState(window.innerWidth > 820);
+  const isDesktopView = useMediaQuery('(min-width: 821px)');
 
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20);
     };
 
-    const handleResize = () => {
-      const isDesktop = window.innerWidth > 820;
-      setIsDesktopView(isDesktop);
-      if (isDesktop) {
-        setIsMobileMenuOpen(false);
-      }
-    };
-
     window.addEventListener('scroll', handleScroll);
-    window.addEventListener('resize', handleResize);
-    
     return () => {
       window.removeEventListener('scroll', handleScroll);
-      window.removeEventListener('resize', handleResize);
     };
   }, []);
+
+  // Sync mobile menu state when switching to desktop
+  useEffect(() => {
+    if (isDesktopView) {
+      setIsMobileMenuOpen(false);
+    }
+  }, [isDesktopView]);
 
   // Lock body scroll when mobile menu is open
   useEffect(() => {

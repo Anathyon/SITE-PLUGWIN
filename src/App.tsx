@@ -6,6 +6,7 @@ import { Routes, Route } from 'react-router-dom';
 import './App.css';
 import { Navbar } from './components/layout/Navbar';
 import { Footer } from './components/layout/Footer';
+import { ScrollToTop } from './components/layout/ScrollToTop';
 import { Hero } from './components/sections/Hero';
 import { Features } from './components/sections/Features';
 import { About } from './components/sections/About';
@@ -41,6 +42,9 @@ function App() {
     <>
       {/* Navegação fixa no topo */}
       <Navbar />
+      
+      {/* Scroll fixo no topo ao mudar de página */}
+      <ScrollToTop />
       
       {/* Notificação LGPD */}
       <Notification />

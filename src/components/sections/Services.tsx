@@ -3,7 +3,8 @@ import { Code, Cloud, Smartphone, Layout, ShoppingCart, Settings, Cpu, Network }
 import { FadeIn } from '../ui/FadeIn';
 import { Carousel } from '../ui/Carousel';
 import { cn } from '../../utils/cn';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
+import { useMediaQuery } from '../../hooks/useMediaQuery';
 import type { Service } from '../../types/content';
 
 const services: Service[] = [
@@ -50,14 +51,7 @@ const services: Service[] = [
 ];
 
 export const Services = () => {
-  const [isMobile, setIsMobile] = useState(false);
-
-  useEffect(() => {
-    const checkMobile = () => setIsMobile(window.innerWidth < 768);
-    checkMobile();
-    window.addEventListener('resize', checkMobile);
-    return () => window.removeEventListener('resize', checkMobile);
-  }, []);
+  const isMobile = useMediaQuery('(max-width: 767px)');
 
   const ServiceCard = ({ service, index }: { service: Service; index: number }) => (
     <GlassCard 
