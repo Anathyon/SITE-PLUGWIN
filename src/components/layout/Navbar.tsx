@@ -91,7 +91,7 @@ export const Navbar = () => {
       >
         <Link to="/" className="flex items-center" style={{ gap: '8px' }}>
            <img 
-            src="https://site.plugwin.net/assets/img/logo_plugwin.png" 
+            src="/assets/icons/logo_plugwin.png" 
             alt="PlugWin Logo" 
             style={{ 
               height: isScrolled ? '40px' : '63px', 
