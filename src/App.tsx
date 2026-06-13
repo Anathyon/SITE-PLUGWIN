@@ -11,7 +11,6 @@ import { Hero } from './components/sections/Hero';
 import { Features } from './components/sections/Features';
 import { About } from './components/sections/About';
 import { Services } from './components/sections/Services';
-import { Projects } from './components/sections/Projects';
 import { BlogSection } from './components/sections/BlogSection';
 import { Notification } from './components/ui/Notification';
 import { Blob } from './components/ui/Blob';
@@ -67,7 +66,6 @@ function App() {
             <Features />
             <About />
             <Services />
-            <Projects />
             <BlogSection />
             <Testimonials />
             <Contact />

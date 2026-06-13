@@ -7,7 +7,7 @@ export const Footer = () => {
         <div className="flex flex-col md:flex-row justify-between items-center" style={{ gap: '24px' }}>
           <div className="flex items-center" style={{ gap: '8px' }}>
             <img 
-              src="https://site.plugwin.net/assets/img/logo_plugwin.png" 
+              src="/assets/icons/logo_plugwin.png" 
               alt="PlugWin Logo" 
               style={{ height: '32px', width: 'auto', filter: 'brightness(0) invert(1)' }}
             />

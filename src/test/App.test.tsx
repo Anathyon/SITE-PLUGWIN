@@ -14,7 +14,7 @@ describe('App Component', () => {
       </MemoryRouter>
     );
     // Verifica se o logo está presente
-    const logo = screen.getByAltText('PlugWin Logo');
+    const logo = screen.getAllByAltText('PlugWin Logo')[0];
     expect(logo).toBeInTheDocument();
   });
 
@@ -28,7 +28,6 @@ describe('App Component', () => {
     // Verifica se as seções principais estão presentes
     expect(document.querySelector('#about')).toBeInTheDocument();
     expect(document.querySelector('#services')).toBeInTheDocument();
-    expect(document.querySelector('#projects')).toBeInTheDocument();
     expect(document.querySelector('#contact')).toBeInTheDocument();
   });
 

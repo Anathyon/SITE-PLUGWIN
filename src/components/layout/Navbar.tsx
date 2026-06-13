@@ -62,7 +62,6 @@ export const Navbar = () => {
   const navLinks = [
     { name: 'Sobre', href: '#about' },
     { name: 'Serviços', href: '#services' },
-    { name: 'Projetos', href: '#projects' },
     { name: 'Blog', href: '#blog' },
     { name: 'Depoimentos', href: '#testimonials' },
     { name: 'Contato', href: '#contact' },

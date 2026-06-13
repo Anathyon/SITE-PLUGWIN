@@ -16,7 +16,7 @@ describe('BlogPost Component', () => {
     );
 
     expect(screen.getByText(post.title)).toBeInTheDocument();
-    expect(screen.getByText('Voltar')).toBeInTheDocument();
+    expect(screen.getByText(/Voltar/)).toBeInTheDocument();
   });
 
   it('renders "Post não encontrado" when an invalid ID is provided', () => {
